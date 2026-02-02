@@ -3,8 +3,8 @@
 **KlemmenplanApp** ist eine grafische Desktop-Anwendung zur Erstellung von
 Klemmen- bzw. Terminaltabellen für **QElectroTech-Dateien**.
 
-Die Anwendung wurde mit **Python** und **PySide6 (Qt 6)** entwickelt und wird
-für Linux als **AppImage** bereitgestellt.
+Die Anwendung wurde mit **Python** und **PySide6 (Qt 6)** entwickelt und
+unterstützt **mehrsprachige Oberflächen** via gettext. 
 
 ---
 
@@ -15,7 +15,8 @@ für Linux als **AppImage** bereitgestellt.
 - Nutzung einer SQLite-Datenbank
 - Erstellen und Verwalten von Klemmentabellen
 - Export / Weiterverarbeitung für QElectroTech
-- Läuft ohne Installation als **AppImage**
+- AppImage (Linux)
+- Windows-Executable
 
 ---
 
@@ -36,6 +37,51 @@ für Linux als **AppImage** bereitgestellt.
 2. Starten:
    ./KlemmenplanApp-x86_64.AppImage
    oder per Doppelklick im Dateimanager.
+
+**Windows**
+
+Die .exe aus den Releases herunterladen
+
+Direkt starten (keine Installation notwendig)
+
+
+---
+
+## Entwicklung
+
+
+**Voraussetzungen**
+
+-Python ≥ 3.10
+
+-PySide6
+
+-gettext
+
+-Qt6
+
+**Lokaler Start**
+
+python3 Main.py
+
+
+**Build**
+
+Der Build-Prozess ist im Skript build.sh dokumentiert.
+
+Damit werden u. a. erzeugt:
+
+Linux AppImage
+
+
+---
+
+## Lizense
+
+Dieses Projekt steht unter 
+GNU GENERAL PUBLIC LICENSE.
+
+Details siehe LICENSE->.
 
 
 
