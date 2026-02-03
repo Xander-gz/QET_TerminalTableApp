@@ -83,6 +83,3 @@ GNU GENERAL PUBLIC LICENSE.
 
 Details siehe LICENSE->.
 
-
-
-# QET_TerminalTableApp
