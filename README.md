@@ -1,6 +1,6 @@
-# KlemmenplanApp
+## TerminalTableApp
 
-**KlemmenplanApp** ist eine grafische Desktop-Anwendung zur Erstellung von
+**TerminalTableApp** (KlemmenplanApp)ist eine grafische Desktop-Anwendung zur Erstellung von
 Klemmen- bzw. Terminaltabellen für **QElectroTech-Dateien**.
 
 Die Anwendung wurde mit **Python** und **PySide6 (Qt 6)** entwickelt und
@@ -35,7 +35,7 @@ unterstützt **mehrsprachige Oberflächen** via gettext.
    chmod +x KlemmenplanApp-x86_64.AppImage
 
 2. Starten:
-   ./KlemmenplanApp-x86_64.AppImage
+   ./TerminalTableApp-X.X.X-x86_64.AppImage
    oder per Doppelklick im Dateimanager.
 
 **Windows**
@@ -85,3 +85,4 @@ Details siehe LICENSE->.
 
 
 
+# QET_TerminalTableApp
