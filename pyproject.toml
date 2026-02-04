@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "TerminalTableApp"
+version = "0.3.4"
+description = "Terminal table / wiring list generator with Qt6"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+
+dependencies = [
+    "PySide6",
+]
+
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+# optional aber sehr nice:
+[project.scripts]
+terminaltable = "TerminalTableApp.main:main"
+
