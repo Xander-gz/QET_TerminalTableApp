@@ -68,11 +68,12 @@ from PySide6.QtWidgets import (
     )
 
 
-from MainWindow import Ui_MainWindow
-from HelpWindow import Ui_HelpWindow
-from aboutWindow import Ui_aboutWindow
+from .ui.MainWindow import Ui_MainWindow
+from .ui.HelpWindow import Ui_HelpWindow
+from .ui.aboutWindow import Ui_aboutWindow
 
-import main_funktions
+
+from . import main_funktions
 
 class HelpWindow(QDialog):
     def __init__(self,parent=None):
@@ -152,7 +153,7 @@ class MainWindow(QMainWindow, QFileDialog, QPushButton):
         self.aw = aboutWindow()
         self.aw.show()
 
-if __name__ == "__main__":
+def main():
     app = QApplication(sys.argv)
 
     Window = MainWindow()

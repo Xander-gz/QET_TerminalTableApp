@@ -1,4 +1,42 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.so
+
+# Virtual environments
+venv/
 .venv/
-.env
+env/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# Editable install cache
+*.egg-info
+
+# Qt / PySide
+*.qmlc
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# AppImage / binaries
+*.AppImage
+AppDir/
+squashfs-root/
+
+# gettext compiled files (optional)
+*.mo
+

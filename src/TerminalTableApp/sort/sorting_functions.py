@@ -1,6 +1,6 @@
 
 
-import sql_queries as sq
+import TerminalTableApp.sort.sql_queries as sq
 
 
 def reference(terminal_obj):

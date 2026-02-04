@@ -13,9 +13,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 import sqlite3
 
-import create_database as cdb
-import read_xml_file as read_xml
-import create_table as create_table
+
+from TerminalTableApp.read import create_database as cdb
+from TerminalTableApp.read import read_xml_file as read_xml
+from TerminalTableApp.write import create_table as create_table
 
 
 

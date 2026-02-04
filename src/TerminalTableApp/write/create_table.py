@@ -22,10 +22,11 @@ def parsetree(origin_file, give_feedback):
     return xmltree
 
 
-import sorting_functions as sf
-import table_functions as tf
-import sql_queries as sq
-import terminal_table_classes as cl
+
+from TerminalTableApp.sort import sorting_functions as sf
+from TerminalTableApp.sort import sql_queries as sq
+from TerminalTableApp.sort import terminal_table_classes as cl
+from TerminalTableApp.write import table_functions as tf
 
 
 def create_table(origin_file, cursor, connection, give_feedback):

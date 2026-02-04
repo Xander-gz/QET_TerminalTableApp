@@ -1,4 +1,5 @@
-import terminal_table_classes as cl
+
+import TerminalTableApp.sort.terminal_table_classes as cl
 
 
 
