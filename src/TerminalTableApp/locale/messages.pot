@@ -1,122 +1,121 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-09 19:56+0100\n"
-"PO-Revision-Date: 2026-02-09 20:05+0100\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: de_DE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: pygettext.py 1.5\n"
-"X-Generator: Poedit 3.4.2\n"
 
 #: src/TerminalTableApp/write/table_functions.py:69
 msgid "Terminal strip "
-msgstr "Klemmleiste "
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:122
 msgid "Terminal strip"
-msgstr "Klemmleiste"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:202
 msgid "Cables or single wires used"
-msgstr "Verwendete Kabel oder Einzelader"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:203
 msgid "Designation"
-msgstr "Bezeichnung"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:204
 #: src/TerminalTableApp/write/table_functions.py:230
 #: src/TerminalTableApp/write/table_functions.py:245
 msgid "Ziehl"
-msgstr "Ziehl"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:205
 msgid "Type"
-msgstr "Typ"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:206
 msgid "Cross-section"
-msgstr "Qerschnitt"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:207
 msgid "Number of wires"
-msgstr "Ader-Anzahl"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:208
 msgid "Voltage/protocol"
-msgstr "Spannung/Protokoll"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:216
 msgid "Terminal strip:"
-msgstr "Klemmleiste:"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:217
 msgid "Terminal used:"
-msgstr "Verwendete Klemme:"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:218
 msgid "Comments:"
-msgstr "Bemerkungen:"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:219
 #: src/TerminalTableApp/write/table_functions.py:243
 msgid "Plan-"
-msgstr "Plan-"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:220
 #: src/TerminalTableApp/write/table_functions.py:244
 msgid "reference"
-msgstr "verweis"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:221
 #: src/TerminalTableApp/write/table_functions.py:250
 msgid "Cable"
-msgstr "Kabel"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:222
 #: src/TerminalTableApp/write/table_functions.py:251
 msgid "Wire nr.  /  Color"
-msgstr "Ader-Nr. / Farbe"
+msgstr ""
 
-# take care of length, max. 58
 #: src/TerminalTableApp/write/table_functions.py:231
 #: src/TerminalTableApp/write/table_functions.py:246
 msgid "= Plant / + Location / - Device tag / : Connection"
-msgstr "= Anlage    /    + Ort    /    - BMK    /    : Anschluss"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:235
 msgid "Function"
-msgstr "Funktion"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:236
 #: src/TerminalTableApp/write/table_functions.py:242
 msgid "Bridge / Socket"
-msgstr "Brücke / Buchse"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:237
 msgid "externaly"
-msgstr "extern"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:238
 msgid "Terminal"
-msgstr "Klemme"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:239
 msgid "internaly"
-msgstr "intern"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:277
 msgid "Is this terminal internally and externally reversed?"
-msgstr "Ist an der Klemme intern und extern vertauscht?"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:290
 #: src/TerminalTableApp/write/table_functions.py:340
@@ -124,24 +123,20 @@ msgid ""
 "Attention! No cables stored! \n"
 "Wires are stored in column 1."
 msgstr ""
-"Achtung! Keine Kabel gespeichert!\n"
-"Die Adern werden in Spalte 1 abgelegt."
 
 #: src/TerminalTableApp/write/table_functions.py:428
 msgid "Error! The ‘position designation’ is incorrect at a bridge at terminal"
-msgstr "Fehler! Die Positionsangabe einer Brücke ist falsch"
+msgstr ""
 
 #: src/TerminalTableApp/write/table_functions.py:428
 msgid "It must be (1-3)e or (1-3)i."
-msgstr "Sie muss (1-3)+(e oder i) sein."
+msgstr ""
 
 #: src/TerminalTableApp/write/create_table.py:73
 msgid ""
 "\n"
 "The lines per terminal could not be calculated!\n"
 msgstr ""
-"\n"
-"Die Zeilen je Klemme konnten nicht berechnet werden!\n"
 
 #: src/TerminalTableApp/write/create_table.py:73
 msgid ""
@@ -149,45 +144,36 @@ msgid ""
 "each terminal strip.\n"
 "If desired, they can be covered with a white rectangle."
 msgstr ""
-"Von jeder Klemmleiste müssen alle Anschlusspunkte (a, b, c, d,...) einmal im "
-"Plan dargestellt werden.\n"
-"Wenn gewünscht können sie mit einem Weißen Rechteck abgedeckt werden."
 
 #: src/TerminalTableApp/write/create_table.py:247
 msgid ""
 "\n"
 "Finisch!"
 msgstr ""
-"\n"
-"Fertig!"
 
 #: src/TerminalTableApp/write/create_table.py:248
 msgid "The file"
-msgstr "Die Datei"
+msgstr ""
 
 #: src/TerminalTableApp/write/create_table.py:248
 msgid "is successfully created."
-msgstr "wurde erfolgreich gespeichert."
+msgstr ""
 
 #: src/TerminalTableApp/sort/sorting_functions.py:51
 msgid "No element is connected to a linked page reference? "
-msgstr "An einem Seiten-Verweis ist kein Element angeschlossen? "
+msgstr ""
 
 #: src/TerminalTableApp/sort/sorting_functions.py:132
 msgid ""
 "Attention! \n"
 "All conductors carrying potential are likely to be marked as bridges!\n"
 msgstr ""
-"Achtung!\n"
-"Alle Leiter des selben Potentials sind wahrscheinlich als Brücke markiert!\n"
 
 #: src/TerminalTableApp/sort/sql_queries.py:110
 msgid ""
 "An element was labelled with -X that is not a terminal (without a named "
 "terminal)."
 msgstr ""
-"Ein Element das mit -X gekennzeichnet ist, ist keine Klemme (ohne benamtes "
-"terminal)"
 
 #: src/TerminalTableApp/sort/sql_queries.py:322
 #: src/TerminalTableApp/sort/sql_queries.py:386
@@ -195,8 +181,6 @@ msgid ""
 "Error! \n"
 "At terminal  "
 msgstr ""
-"Fehler! \n"
-"An Klemme "
 
 #: src/TerminalTableApp/sort/sql_queries.py:323
 #: src/TerminalTableApp/sort/sql_queries.py:387
@@ -204,24 +188,18 @@ msgid ""
 "\n"
 "a connected element is not fully populated with data."
 msgstr ""
-"\n"
-"ein angeschlossenes Element ist nicht vollständig mit Daten versehen."
 
 #: src/TerminalTableApp/sort/sql_queries.py:350
 msgid ""
 "Error!\n"
 "At terminal "
 msgstr ""
-"Fehler!\n"
-"An Klemme "
 
 #: src/TerminalTableApp/sort/sql_queries.py:351
 msgid ""
 "\n"
 "a slave element is not linked."
 msgstr ""
-"\n"
-"ein Slave-Element ist nicht verlinkt."
 
 #: src/TerminalTableApp/main.py:83
 msgid ""
@@ -281,64 +259,10 @@ msgid ""
 "It is possible to add further elements, such as an image of the\n"
 "terminals used or comments."
 msgstr ""
-"Anleitung:\n"
-"Achtung!\n"
-"Das Programm erkennt keine Formeln für die Vergabe von\n"
-"Foliennummern (z.B. auto Foliennummerierung) oder "
-"Betriebsmittelkennzeichen!\n"
-"Diese müssen separat eingegeben werden!\n"
-"\n"
-"Das Betriebsmittelkennzeichen für die Klemmleiste muss mit\n"
-"-X\n"
-"beginnen.\n"
-"Dabei können nachfolgend belibige Zeichen angegeben werden.\n"
-"Die Abgrenzung der Klemmenbezeichnung erfolgt mit einem\n"
-":.\n"
-"Auch hier konnen sowohl Buchstaben als auch Zahlen folgen.\n"
-"Eine Sortierung der Klemmen erfolgt aufsteigend, Zahlen\n"
-"vor Buchstaben.\n"
-"Beispiele:\n"
-"-XPR:1, -X312:21\n"
-"\n"
-"Die Seiten werden mit dem Titel Klemmenplan + Folienname\n"
-"im Projekt angefügt. Folienname K1, K2,...\n"
-"Die Klemmenpläne sind von der Funktion her einzele Elemente,\n"
-"die auch in der Bauteilsammlung unter \n"
-"Importierte elemente/Klemmenpläne angezeigt werden.\n"
-"Zusätzlich werden hier unter /Zubehör Zubehörteile angelegt,\n"
-"die nachträglich \n"
-"über den Klemmenplan gelegt werden können.\n"
-"\n"
-"Bei den im Projekt eingezeichneten Klemmen müssen folgende\n"
-"Vorausssetzungen erfüllt sein:\n"
-"- die Terminals für Klemmpunkte\n"
-"  müssen mit einem Namen versehen sein (a, b...)\n"
-"- die Terminals für Klemmpunkte\n"
-"  müssen als intern oder extern deklariert sein.\n"
-"- Brücken müsen als generisch deklariert sein.\n"
-"  und keinen namen haben.\n"
-"\n"
-"Eine Brücke wird als solche erkannt, wenn der Leiter im Textfeld als Brücke "
-"e1\n"
-"deklariert wird.  e1 steht dabei für extern 1, i1 für intern 1.\n"
-"Folgende Brücken können dabei angegeben werden: e1, e2, e3, und i3, i2, i1.\n"
-"  \n"
-"Vorsicht beim selber Zeichnen der Klemmen-Elemente:\n"
-"Werden die Elemente kopiert oder geändert unter neuem Namen\n"
-"gespeichert, werden die uuid nicht neu vergeben. Das kann\n"
-"zu unerwartetem Verhalten führen. Daher die Terminals immer\n"
-"löschen und neu einfügen.\n"
-"Das selbe gilt auch für andere Elemente.\n"
-"\n"
-"Kabel werden zwar aus der XML-Datei abgefragt. Können aber\n"
-"zur Zeit bei Qelectrotech nicht angegeben werden.\n"
-"\n"
-"Ein Hinzufügen von weiteren Elementen wie z.B. ein Bild der\n"
-"verwendeten Klemmen oder von Bemerkungen ist möglich."
 
 #: src/TerminalTableApp/main.py:91
 msgid "TerminalTableApp"
-msgstr "KlemmenplanApp"
+msgstr ""
 
 #: src/TerminalTableApp/main.py:91
 msgid ""
@@ -357,36 +281,22 @@ msgid ""
 "\n"
 "Copyright © 2026 xanderhopp"
 msgstr ""
-"Die App liest eine Qelectrotech-Datei aus, erstellt eine Klemmenplantabelle, "
-"fügt die Tabelle an\n"
-"und speichert die Datei unter neuem Namen.\n"
-"\n"
-"Projektname ist eine freie Open-Source-Software, veröffentlicht unter\n"
-"der GNU General Public License Version 3 (GPL-3.0).\n"
-"\n"
-"Diese Lizenz erlaubt die Nutzung, Untersuchung, Veränderung und\n"
-"Weiterverbreitung des Quellcodes, unter der Bedingung, dass\n"
-"abgeleitete Werke ebenfalls unter der GPL v3 lizenziert werden.\n"
-"\n"
-"Der vollständige Lizenztext befindet sich in der Datei LICENSE.\n"
-"\n"
-"Copyright © 2026 xanderhopp"
 
 #: src/TerminalTableApp/main.py:102
 msgid "Terminalblock tables for Qelectrotech"
-msgstr "Klemmenpläne für Qelectrotech"
+msgstr ""
 
 #: src/TerminalTableApp/main.py:103
 msgid "help"
-msgstr "Hilfe"
+msgstr ""
 
 #: src/TerminalTableApp/main.py:104
 msgid "Instruction"
-msgstr "Anleitung"
+msgstr ""
 
 #: src/TerminalTableApp/main.py:105
 msgid "about"
-msgstr "Über"
+msgstr ""
 
 #: src/TerminalTableApp/main.py:106
 msgid ""
@@ -401,47 +311,33 @@ msgid ""
 "\n"
 "The original file remains unchanged."
 msgstr ""
-"Mit Klemmenpläne für Qelectrotech werden\n"
-"die einzelnen mit -X??:?? gekennzeichneten \n"
-"Klemmenlemente sortiert, den jeweileigen\n"
-"Klemmleisten zugeordnet, in eine Tabelle \n"
-"geschrieben.\n"
-"Die Tabellen werden als neue Seiten\n"
-"an das Projekt angefügt und unter dem\n"
-"Originaldateinamen_terminals.qet \n"
-"im selben Ordner wie die Originaldatei\n"
-"abgespeichert.\n"
-"\n"
-"Die Originaldatei bleibt dabei unverändert."
 
 #: src/TerminalTableApp/main.py:107
 msgid ""
 "choose\n"
 "file"
 msgstr ""
-"Datei\n"
-"auswählen"
 
 #: src/TerminalTableApp/main.py:108
 msgid "chosen file:"
-msgstr "Ausgewählte Datei:"
+msgstr ""
 
 #: src/TerminalTableApp/main.py:109
 msgid "nothing selected"
-msgstr "nichts ausgewählt"
+msgstr ""
 
 #: src/TerminalTableApp/main.py:110
 msgid "create terminlalblock table"
-msgstr "Klemmenplan erstellen"
+msgstr ""
 
 #: src/TerminalTableApp/main.py:111
 msgid "clear feedback"
-msgstr "Rückmeldungen löschen"
+msgstr ""
 
 #: src/TerminalTableApp/main.py:112
 msgid "feedback comments:"
-msgstr "Rückmeldungen:"
+msgstr ""
 
 #: src/TerminalTableApp/read/read_xml_file.py:296
 msgid "Terminal with the same uuid available again?"
-msgstr "Ein Terminal mit der selben uuid wurde nochmal verwendet?"
+msgstr ""

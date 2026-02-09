@@ -70,7 +70,7 @@ def create_table(origin_file, cursor, connection, give_feedback):
         try:
             max_terminals_per_page = int(40/rows_per_terminal[0])
         except:
-            give_feedback(_("\nDie Zeilen je Klemme konnten nicht berechnet werden!\n") + str(terminal_row_obj[terminal_name]) + _("Von jeder Klemmleiste müssen alle Anschlusspunkte (a, b, c, d,...) einmal im Plan dargestellt werden.\nWenn gewünscht können sie mit einem Weißen Rechteck abgedeckt werden."))
+            give_feedback(_("\nThe lines per terminal could not be calculated!\n") + str(terminal_row_obj[terminal_name]) + _("All connection points (a, b, c, d,...) must be shown once in the plan for each terminal strip.\nIf desired, they can be covered with a white rectangle."))
 
         connected_cables = sq.connected_cables(cursor, terminal_row_obj)
 

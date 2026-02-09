@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-02-09 19:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: main.py:83
+msgid ""
+"Instruction:\n"
+"Attention!\n"
+"The programme does not recognise formulas for assigning\n"
+"slide numbers (e.g. %id/%total) or equipment codes!\n"
+"These must be entered separately!\n"
+"\n"
+"The equipment code for the terminal strip must begin with\n"
+"‘-X’.\n"
+"\n"
+"Any characters can be specified after this.\n"
+"The terminal designation is delimited with a\n"
+"‘:’.\n"
+"Here, too, both letters and numbers can follow.\n"
+"The terminals are sorted in ascending order, with numbers\n"
+"before letters.\n"
+"Examples:\n"
+"‘-XPR:1’, ‘-X312:21’\n"
+"\n"
+"The pages are added to the project with the title Terminal diagram + slide name\n"
+". Slide name K1, K2,...\n"
+"In terms of function, the terminal diagrams are individual elements\n"
+"that are also displayed in the component collection under \n"
+"Imported elements/Terminal diagrams.\n"
+"In addition, accessories are created here under /Accessories,\n"
+"which can be subsequently placed over the terminal diagram.\n"
+"\n"
+"The following requirements must be met for the terminals drawn in the project\n"
+":\n"
+"- The terminals for terminal points\n"
+"  must be given a name (a, b...)\n"
+"- The terminals for terminal points\n"
+"  must be declared as internal or external.\n"
+"- Bridges must be declared as generic.\n"
+"  and have no name.\n"
+"\n"
+"A bridge is recognised as such if the conductor in the text field is declared as ‘bridge e1’.\n"
+"  ‘e1’ stands for external 1, ‘i1’ for internal 1.\n"
+"The following bridges can be specified: e1, e2, e3, and i3, i2, i1.\n"
+"\n"
+"\n"
+"Be careful when drawing terminal elements yourself.\n"
+"If the elements are copied or saved under a new name,\n"
+"the ‘uuid’ of the terminals will not be reassigned. This can\n"
+"lead to unexpected behaviour. Therefore, always delete the terminals\n"
+"and insert them again.\n"
+"The same applies to other elements.\n"
+"\n"
+"Cables are queried from the XML file. However, they cannot\n"
+"currently be specified in Qelectrotech.\n"
+"\n"
+"It is possible to add further elements, such as an image of the\n"
+"terminals used or comments."
+msgstr ""
+
+#: main.py:91
+msgid "TerminalTableApp"
+msgstr ""
+
+#: main.py:91
+msgid ""
+"The app reads a Qelectrotech file, creates a terminal diagram table, appends the table,\n"
+"and saves the file under a new name.\n"
+"\n"
+"Project Name is free open-source software, published under\n"
+"the GNU General Public Licence Version 3 (GPL-3.0).\n"
+"\n"
+"This licence permits the use, examination, modification and\n"
+"redistribution of the source code, provided that\n"
+"derivative works are also licensed under GPL v3.\n"
+"\n"
+"The full licence text can be found in the LICENCE file.\n"
+"\n"
+"Copyright © 2026 xanderhopp"
+msgstr ""
+
+#: main.py:102
+msgid "Terminalblock tables for Qelectrotech"
+msgstr ""
+
+#: main.py:103
+msgid "help"
+msgstr ""
+
+#: main.py:104
+msgid "Instruction"
+msgstr ""
+
+#: main.py:105
+msgid "about"
+msgstr ""
+
+#: main.py:106
+msgid ""
+"With \"Terminalblock tables for Qelectrotech\"\n"
+"the individual terminal elements marked with \"-X??:??\"\n"
+"are sorted, assigned to the respective\n"
+"terminal strips, and written to a table.\n"
+"The tables are added to the project as new pages\n"
+"and saved under the name\n"
+"Original-file-name_terminals.qet\n"
+"in the same folder as the original file. \n"
+"\n"
+"The original file remains unchanged."
+msgstr ""
+
+#: main.py:107
+msgid ""
+"choose\n"
+"file"
+msgstr ""
+
+#: main.py:108
+msgid "chosen file:"
+msgstr ""
+
+#: main.py:109
+msgid "nothing selected"
+msgstr ""
+
+#: main.py:110
+msgid "create terminlalblock table"
+msgstr ""
+
+#: main.py:111
+msgid "clear feedback"
+msgstr ""
+
+#: main.py:112
+msgid "feedback comments:"
+msgstr ""
+
