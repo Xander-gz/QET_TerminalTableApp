@@ -1,121 +1,115 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-APP=TerminalTableApp
-DOMAIN=TerminalTableApp
-VERSION=0.3.4
-ARCH=x86_64
+APP_NAME="TerminalTableApp"
+APP_ID="terminaltable"
+PYTHON_VERSION="3.12"
+ARCH=$(uname -m)
 
-APPDIR="$APP.AppDir"
-DOCDIR="$APPDIR/usr/share/doc/$APP"
+ROOT="$(pwd)"
+APPDIR="$ROOT/AppDir"
 
-echo "🚀 Building $APP AppImage"
+echo "📦 Read version from pyproject.toml"
+VERSION=$(grep -E '^version\s*=' pyproject.toml | sed 's/.*"\(.*\)".*/\1/')
+echo "➡ Version: $VERSION"
 
-# --------------------------------------------------
-# 1️⃣ Clean old builds
-# --------------------------------------------------
-rm -rf build dist "$APPDIR" *.AppImage
+# echo "🧹 Clean"
+# rm -rf "$APPDIR" *.AppImage
 
-# --------------------------------------------------
-# 2️⃣ Extract translations (pygettext)
-# --------------------------------------------------
-echo "🌍 Extracting translation template (.pot)"
-mkdir -p locale
-pygettext3 -d $DOMAIN -o locale/$DOMAIN.pot $(find src -name "*.py")
-
-# --------------------------------------------------
-# 3️⃣ Build Python app (cx_Freeze)
-# --------------------------------------------------
-echo "🐍 Building Python application"
-python3 setup.py build
-
-# --------------------------------------------------
-# 4️⃣ Compile translations (.po → .mo)
-# --------------------------------------------------
-echo "🌍 Compiling translations"
-find locale -name "*.po" | while read po; do
-    mo="${po%.po}.mo"
-    msgfmt "$po" -o "$mo"
-done
-
-# --------------------------------------------------
-# 5️⃣ Create AppDir structure
-# --------------------------------------------------
-echo "📦 Creating AppDir structure"
-
+echo "📁 Create AppDir"
 mkdir -p "$APPDIR/usr/bin"
-mkdir -p "$APPDIR/usr/share/locale"
-mkdir -p "$DOCDIR"
+mkdir -p "$APPDIR/usr/share/applications"
+mkdir -p "$APPDIR/usr/share/icons/hicolor/256x256/apps"
 
-# Copy built app
-cp -r build/exe.linux-x86_64-3.13/* "$APPDIR/usr/bin/"
+echo "🐍 Activate venv"
+source venv/bin/activate
 
-# Copy translations
-cp -r locale/* "$APPDIR/usr/share/locale/"
+echo "📦 Install app into AppDir"
+pip install . --prefix="$APPDIR/usr" --no-compile
 
-# --------------------------------------------------
-# 6️⃣ Copy documentation (LICENSE & README)
-# --------------------------------------------------
-echo "📄 Copying documentation"
+echo "🚀 Launcher"
+cat > "$APPDIR/usr/bin/$APP_ID" << EOF
+#!/usr/bin/env bash
+HERE=\$(dirname "\$(readlink -f "\$0")")
 
-[ -f LICENSE ] && cp LICENSE "$DOCDIR/"
-[ -f README.md ] && cp README.md "$DOCDIR/"
+export PYTHONPATH="\$HERE/../lib/python$PYTHON_VERSION/site-packages"
+export QT_QPA_PLATFORM_PLUGIN_PATH="\$PYTHONPATH/PySide6/plugins/platforms"
+export QT_PLUGIN_PATH="\$PYTHONPATH/PySide6/plugins"
 
-# --------------------------------------------------
-# 7️⃣ Desktop file
-# --------------------------------------------------
-cat > "$APPDIR/$APP.desktop" << EOF
+exec "\$HERE/python3" -m TerminalTableApp "\$@"
+EOF
+
+chmod +x "$APPDIR/usr/bin/$APP_ID"
+
+echo "🖥 Desktop file"
+cat > "$APPDIR/$APP_ID.desktop" << EOF
 [Desktop Entry]
 Type=Application
-Name=TerminalTableApp
-Exec=TerminalTableApp
-Icon=TerminalTableApp
+Name=$APP_NAME
+Exec=$APP_ID
+Icon=$APP_ID
 Categories=Utility;
+Terminal=false
 EOF
 
-# --------------------------------------------------
-# 8️⃣ AppRun
-# --------------------------------------------------
-cat > "$APPDIR/AppRun" << 'EOF'
-#!/bin/bash
-HERE="$(dirname "$(readlink -f "$0")")"
+echo "🖼 Icon"
+cp icon.png "$APPDIR/$APP_ID.png"
 
-export APPDIR="$HERE"
-export PATH="$HERE/usr/bin:$PATH"
-export LD_LIBRARY_PATH="$HERE/usr/lib:$LD_LIBRARY_PATH"
+echo "📦 Copy Python runtime"
+cp -r venv/bin "$APPDIR/usr/"
+cp -r venv/lib "$APPDIR/usr/"
 
-exec "$HERE/usr/bin/TerminalTableApp" "$@"
-EOF
+echo "🧼 Qt plugin optimization"
 
-chmod +x "$APPDIR/AppRun"
+QT_PLUGINS="$APPDIR/usr/lib/python$PYTHON_VERSION/site-packages/PySide6/plugins"
 
-# --------------------------------------------------
-# 9️⃣ Icon (optional)
-# --------------------------------------------------
-if [ -f "icon.png" ]; then
-    cp icon.png "$APPDIR/TerminalTableApp.png"
-fi
+# Nur das nötigste behalten
+KEEP_PLUGINS=(
+  platforms
+  imageformats
+  styles
+)
 
-if [ -f "icon.svg" ]; then
-    cp icon.png "$APPDIR/TerminalTableApp.svg"
-fi
+for dir in "$QT_PLUGINS"/*; do
+  name=$(basename "$dir")
+  if [[ ! " ${KEEP_PLUGINS[@]} " =~ " $name " ]]; then
+    echo "  ❌ removing Qt plugin: $name"
+    rm -rf "$dir"
+  fi
+done
+
+echo "🧼 Remove unused Qt platform plugins"
+PLATFORMS="$QT_PLUGINS/platforms"
+rm -f "$PLATFORMS"/libqwayland*
+rm -f "$PLATFORMS"/libqxcb.so.debug
+
+echo "🧼 Remove PySide tests & cache"
+find "$APPDIR/usr" -type d -name "__pycache__" -exec rm -rf {} +
+find "$APPDIR/usr" -type d -name "tests" -exec rm -rf {} +
 
 # --------------------------------------------------
 # 🔟 Build AppImage
 # --------------------------------------------------
-echo "🧱 Building AppImage"
 
-if [ ! -f "appimagetool-x86_64.AppImage" ]; then
-    wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
-    chmod +x appimagetool-x86_64.AppImage
-fi
 
-./appimagetool-x86_64.AppImage "$APPDIR" "$APP-$VERSION-$ARCH.AppImage"
+#if ! command -v appimagetool &> /dev/null; then
+#  echo "❌ appimagetool not installed"
+#  exit 1
+#fi
+
+#appimagetool "$APPDIR" "$APP_NAME-$VERSION-$ARCH.AppImage"
+
+
+ echo "🧱 Building AppImage"
+ 
+
+
+
+./appimagetool-x86_64.AppImage "$APPDIR" "$APP_NAME-$VERSION-$ARCH.AppImage"
 
 
 
 echo "✅ Done!"
-echo "➡️  $APP-$VERSION-$ARCH.AppImage"
-
+echo "➡️  $APP_NAME-$VERSION-$ARCH.AppImage"
 
 
