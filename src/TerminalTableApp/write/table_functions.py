@@ -190,11 +190,11 @@ def create_table(terminal_row_obj, part, parts, identstr):
                                        "Length1": "1.5", "x1": s[1], "end1": "none", "antialias": "false",
                                        "x2": s[2], "length2": "1.5", "y2": s[3], "end2": "none"})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,28,-1,5,75,0,0,0,0,0",
+                                  {"font": "Liberation Sans,28,-1,5,75,0,0,0,0,0",
                                    "rotation": "0", "y": "40", "color": "#000000",
                                    "x": "770", "text": terminal_row_obj.terminal_name})  # Rahmen 4 / Klemmleistenbezeichnung
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,75,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,75,0,0,0,0,0",
                                    "rotation": "0", "y": "80", "color": "#000000",
                                    "x": "615",
                                    "text": "Blatt " + str(part) + " von " + str(parts)})  # Blatt-NR / Anzahl Blätter
@@ -258,7 +258,7 @@ def create_table(terminal_row_obj, part, parts, identstr):
              ["9", "75", "1462", "235", "7"])
     for s in texts:
         text = ElementTree.SubElement(description, "text",
-                                      {"font": f"Sans Serif,{s[0]},-1,5,{s[1]},0,0,0,0,0",
+                                      {"font": f"Liberation Sans,{s[0]},-1,5,{s[1]},0,0,0,0,0",
                                        "rotation": "0", "y": s[3], "color": "#000000",
                                        "x": s[2], "text": s[4]})
     return element
@@ -296,28 +296,28 @@ def create_row_outer(connection_obj, conductor_obj, element_obj, connected_cable
 
     description = ElementTree.Element("description")
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "8", "text": sf.reference(element_obj)} ) # Seitenverweis
     if conductor_obj.conductor_color != "":
         text = ElementTree.SubElement(description, "text",
-                                      {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                      {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                        "rotation": "0", "y": str(x), "color": "#000000",
                                        "x": str(c), "text": conductor_obj.conductor_color})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "295", "text": ("="+element_obj.plant)})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "370", "text": ("+"+element_obj.location)})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "440", "text": element_obj.label})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "530", "text": (":"+element_obj.connectionpoint)})
     return description
@@ -348,28 +348,28 @@ def create_row_inner(connection_obj, conductor_obj, element_obj, connected_cable
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     description = ElementTree.Element("description")
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "1490", "text": sf.reference(element_obj)})  # Seitenverweis
     if conductor_obj.conductor_color != "":
         text = ElementTree.SubElement(description, "text",
-                                      {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                      {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                        "rotation": "0", "y": str(x), "color": "#000000",
                                        "x": str(c), "text": conductor_obj.conductor_color})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "985", "text": ("="+element_obj.plant)})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "1060", "text": ("+"+element_obj.location)})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "1130", "text": element_obj.label})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "1220", "text": (":"+element_obj.connectionpoint)})
     return description
@@ -381,16 +381,16 @@ def create_terminal(terminal_obj, linepos, rows, list_of_connectionpoints ):
 
     description = ElementTree.Element("description")
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,11,-1,5,75,0,0,0,0,0",
+                                  {"font": "Liberation Sans,11,-1,5,75,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "820", "text": terminal_obj.terminal_nr})
     # auf den Verweis wird aus Platzgründen verzichtet
     # text = ElementTree.SubElement(description, "text",
-    #                               {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+    #                               {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
     #                                "rotation": "0", "y": str(x), "color": "#000000",
     #                                "x": "812", "text": sf.reference(terminal_obj)})
     text = ElementTree.SubElement(description, "text",
-                                  {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                  {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                    "rotation": "0", "y": str(x), "color": "#000000",
                                    "x": "695", "text": terminal_obj.function})
     zo = 0
@@ -398,13 +398,13 @@ def create_terminal(terminal_obj, linepos, rows, list_of_connectionpoints ):
     for lc in list_of_connectionpoints:
         if lc[1] == "Outer":
             text = ElementTree.SubElement(description, "text",
-                                          {"font": "Sans Serif,9,-1,5,75,0,0,0,0,0",
+                                          {"font": "Liberation Sans,9,-1,5,75,0,0,0,0,0",
                                            "rotation": "0", "y": str(y + zo * 20), "color": "#000000",
                                            "x": "585", "text": lc[0]})
             zo += 1
         if lc[1] == "Inner":
             text = ElementTree.SubElement(description, "text",
-                                          {"font": "Sans Serif,9,-1,5,75,0,0,0,0,0",
+                                          {"font": "Liberation Sans,9,-1,5,75,0,0,0,0,0",
                                            "rotation": "0", "y": str(y + zi * 20), "color": "#000000",
                                            "x": "965", "text": lc[0]})
             zi += 1
@@ -620,19 +620,19 @@ def create_cablelist_part(a):
     for i in a:
         y += 20
         text = ElementTree.SubElement(description, "text",  # Bezeichnung
-                                      {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                      {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                        "rotation": "0", "y": str(y), "color": "#000000",
                                        "x": "25", "text": str(i[0])})
         # text = ElementTree.SubElement(description, "text",  # Ziehl
-        #                               {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+        #                               {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
         #                                "rotation": "0", "y": str(y), "color": "#000000",
         #                                "x": "110", "text": str(i[3])})
         text = ElementTree.SubElement(description, "text",  # Querschnitt
-                                      {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                      {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                        "rotation": "0", "y": str(y), "color": "#000000",
                                        "x": "330", "text": str(i[2])})
         text = ElementTree.SubElement(description, "text",  # Spannung/Potential
-                                      {"font": "Sans Serif,9,-1,5,50,0,0,0,0,0",
+                                      {"font": "Liberation Sans,9,-1,5,50,0,0,0,0,0",
                                        "rotation": "0", "y": str(y), "color": "#000000",
                                        "x": "485", "text": str(i[1])})
     return description
@@ -1229,8 +1229,8 @@ eTableaccessories = ("""
                                         <line end1="none" end2="none" y1="-33.4827" antialias="false" y2="-29.5743" style="line-style:normal;line-weight:thin;filling:none;color:black" length1="1.5" x1="-53.8914" length2="1.5" x2="-39.2099"/>
                                         <line end1="none" end2="none" y1="-3.07777" antialias="false" y2="-12.3165" style="line-style:normal;line-weight:thin;filling:none;color:black" length1="1.5" x1="13.1595" length2="1.5" x2="16.7516"/>
                                         <line end1="none" end2="none" y1="32.9754" antialias="false" y2="39.5138" style="line-style:normal;line-weight:thin;filling:none;color:black" length1="1.5" x1="5.45448" length2="1.5" x2="50.6088"/>
-                                        <text x="-160" y="20" font="Sans Serif,9,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="PTI  2,5 PE-L-N"/>
-                                        <text x="-160" y="30" font="Sans Serif,6,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="3213946"/>
+                                        <text x="-160" y="20" font="Liberation Sans,9,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="PTI  2,5 PE-L-N"/>
+                                        <text x="-160" y="30" font="Liberation Sans,6,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="3213946"/>
                                         <arc x="78" y="2.5861" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" start="0" width="8" height="7.26389" angle="90"/>
                                         <arc x="78" y="2.5861" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" start="270" width="8" height="7.26389" angle="90"/>
                                         <ellipse x="74" y="13.4819" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" width="8" height="7.26389"/>
@@ -1242,10 +1242,10 @@ eTableaccessories = ("""
                                         <line end1="none" end2="none" y1="31.6417" antialias="false" y2="31.6417" style="line-style:normal;line-weight:normal;filling:none;color:black" length1="1.5" x1="118" length2="1.5" x2="126"/>
                                         <line end1="none" end2="none" y1="33.8208" antialias="false" y2="33.8208" style="line-style:normal;line-weight:normal;filling:none;color:black" length1="1.5" x1="119.6" length2="1.5" x2="124.4"/>
                                         <line end1="none" end2="none" y1="36" antialias="false" y2="36" style="line-style:normal;line-weight:normal;filling:none;color:black" length1="1.5" x1="121.2" length2="1.5" x2="122.8"/>
-                                        <text x="64" y="20" font="Sans Serif,9,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="a"/>
-                                        <text x="141" y="21" font="Sans Serif,7,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="L"/>
-                                        <text x="133" y="10" font="Sans Serif,7,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="N"/>
-                                        <text x="149" y="32" font="Sans Serif,7,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="PE"/>
+                                        <text x="64" y="20" font="Liberation Sans,9,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="a"/>
+                                        <text x="141" y="21" font="Liberation Sans,7,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="L"/>
+                                        <text x="133" y="10" font="Liberation Sans,7,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="N"/>
+                                        <text x="149" y="32" font="Liberation Sans,7,-1,5,50,0,0,0,0,0" rotation="0" color="#000000" text="PE"/>
                                     </description>
                                 </definition>
                             </element>
@@ -2268,7 +2268,7 @@ STME 6 HV - Messwandler-Trennklemme
                                     <informations/>
                                     <description>
                                         <circle x="-2" y="-2" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" diameter="4"/>
-                                        <dynamic_text frame="false" Halignment="AlignRight" x="-10" y="-20" z="2" rotation="0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignVCenter">
+                                        <dynamic_text frame="false" Halignment="AlignRight" x="-10" y="-20" z="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignVCenter">
                                             <text/>
                                             <info_name>label</info_name>
                                         </dynamic_text>
@@ -2309,7 +2309,7 @@ STME 6 HV - Messwandler-Trennklemme
                                     <informations/>
                                     <description>
                                         <circle x="-2" y="-2" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" diameter="4"/>
-                                        <dynamic_text frame="false" Halignment="AlignRight" x="-10" y="-20" z="2" rotation="0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignVCenter">
+                                        <dynamic_text frame="false" Halignment="AlignRight" x="-10" y="-20" z="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignVCenter">
                                             <text/>
                                             <info_name>label</info_name>
                                         </dynamic_text>
@@ -2350,7 +2350,7 @@ STME 6 HV - Messwandler-Trennklemme
                                     <informations/>
                                     <description>
                                         <circle x="-2" y="-2" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" diameter="4"/>
-                                        <dynamic_text frame="false" Halignment="AlignRight" x="-10" y="-20" z="2" rotation="0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignVCenter">
+                                        <dynamic_text frame="false" Halignment="AlignRight" x="-10" y="-20" z="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignVCenter">
                                             <text/>
                                             <info_name>label</info_name>
                                         </dynamic_text>
@@ -2378,7 +2378,7 @@ STME 6 HV - Messwandler-Trennklemme
                                     <elementInformations/>
                                     <description>
                                         <circle x="-2" y="-2" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" diameter="4"/>
-                                        <dynamic_text frame="false" Halignment="AlignLeft" x="2" y="-22" z="2" rotation="0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
+                                        <dynamic_text frame="false" Halignment="AlignLeft" x="2" y="-22" z="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
                                             <text/>
                                             <info_name>label</info_name>
                                         </dynamic_text>
@@ -2409,7 +2409,7 @@ STME 6 HV - Messwandler-Trennklemme
                                     <elementInformations/>
                                     <description>
                                         <circle x="-2" y="-2" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" diameter="4"/>
-                                        <dynamic_text frame="false" Halignment="AlignLeft" x="2" y="-22" font="Sans Serif,9,-1,5,50,0,0,0,0,0" z="2" rotation="0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
+                                        <dynamic_text frame="false" Halignment="AlignLeft" x="2" y="-22" font="Liberation Sans,9,-1,5,50,0,0,0,0,0" z="2" rotation="0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
                                             <text/>
                                             <info_name>label</info_name>
                                         </dynamic_text>
@@ -2429,7 +2429,7 @@ STME 6 HV - Messwandler-Trennklemme
                                     <elementInformations/>
                                     <description>
                                         <circle x="-2" y="-2" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" diameter="4"/>
-                                        <dynamic_text frame="false" Halignment="AlignLeft" x="2" y="-22" font="Sans Serif,9,-1,5,50,0,0,0,0,0" z="2" rotation="0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
+                                        <dynamic_text frame="false" Halignment="AlignLeft" x="2" y="-22" font="Liberation Sans,9,-1,5,50,0,0,0,0,0" z="2" rotation="0" text_width="-1" uuid="{b78b45f1-6432-4779-83f2-8d49d95342d2}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
                                             <text/>
                                             <info_name>label</info_name>
                                         </dynamic_text>

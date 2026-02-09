@@ -67,7 +67,11 @@ def create_table(origin_file, cursor, connection, give_feedback):
         number_of_connectionpoints_per_terminal = sq.number_of_connectionpoints_per_terminal(cursor, terminal_row_obj)
         print("number_of_connectionpoints_per_terminal: ", number_of_connectionpoints_per_terminal)
         rows_per_terminal = sf.rows_per_terminal(number_of_connectionpoints_per_terminal)
-        max_terminals_per_page = int(40/rows_per_terminal[0])
+        try:
+            max_terminals_per_page = int(40/rows_per_terminal[0])
+        except:
+            give_feedback(_("\nDie Zeilen je Klemme konnten nicht berechnet werden!\n") + str(terminal_row_obj[terminal_name]) + _("Von jeder Klemmleiste müssen alle Anschlusspunkte (a, b, c, d,...) einmal im Plan dargestellt werden.\nWenn gewünscht können sie mit einem Weißen Rechteck abgedeckt werden."))
+
         connected_cables = sq.connected_cables(cursor, terminal_row_obj)
 
         terminal_counter = 1
