@@ -20,18 +20,17 @@ import sys
 
 APP_NAME = "TerminalTableApp"
 
-
 def get_locale_dir():
-    if "APPDIR" in os.environ:  # AppImage
-        return os.path.join(os.environ["APPDIR"], "usr", "share", "locale")
-
+    # PyInstaller (onefile + onedir)
     if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
-        return os.path.join(sys._MEIPASS, "locale")
+        return os.path.join(sys._MEIPASS, "TerminalTableApp", "locale")
 
+    # normaler dev run
     return os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
         "locale"
     )
+
 
 
 locale_dir = get_locale_dir()
@@ -75,6 +74,11 @@ from .ui.aboutWindow import Ui_aboutWindow
 
 from . import main_funktions
 
+from importlib.metadata import version
+
+APP_VERSION = version("TerminalTableApp")
+
+
 class HelpWindow(QDialog):
     def __init__(self,parent=None):
         super().__init__(parent)
@@ -88,7 +92,7 @@ class aboutWindow(QDialog):
         super().__init__(parent)
         self.ui = Ui_aboutWindow()
         self.ui.setupUi(self)
-        self.ui.plainTextEdit.setPlainText(_("TerminalTableApp") + "\nVersion 1.0.0\n\n" + _("The app reads a Qelectrotech file, creates a terminal diagram table, appends the table,\nand saves the file under a new name.\n\nProject Name is free open-source software, published under\nthe GNU General Public Licence Version 3 (GPL-3.0).\n\nThis licence permits the use, examination, modification and\nredistribution of the source code, provided that\nderivative works are also licensed under GPL v3.\n\nThe full licence text can be found in the LICENCE file.\n\nCopyright © 2026 xanderhopp"))
+        self.ui.plainTextEdit.setPlainText(_("TerminalTableApp") + "\n" + APP_VERSION + "\n\n" + _("The app reads a Qelectrotech file, creates a terminal diagram table, appends the table,\nand saves the file under a new name.\n\nProject Name is free open-source software, published under\nthe GNU General Public Licence Version 3 (GPL-3.0).\n\nThis licence permits the use, examination, modification and\nredistribution of the source code, provided that\nderivative works are also licensed under GPL v3.\n\nThe full licence text can be found in the LICENCE file.\n\nCopyright © 2026 xanderhopp"))
 
 
 class MainWindow(QMainWindow, QFileDialog, QPushButton):
