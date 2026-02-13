@@ -47,7 +47,8 @@ pyinstaller \
   --onefile \
   --clean \
   --paths src \
-  --add-data "src/TerminalTableApp/locale${SEP}TerminalTableApp/locale" \
+  --add-data "src/TerminalTableApp/locale${SEP}locale" \
+  --add-data "src/TerminalTableApp/icons${SEP}icons" \
   src/TerminalTableApp/run.py
 
 

@@ -23,7 +23,7 @@ APP_NAME = "TerminalTableApp"
 def get_locale_dir():
     # PyInstaller (onefile + onedir)
     if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
-        return os.path.join(sys._MEIPASS, "TerminalTableApp", "locale")
+        return os.path.join(sys._MEIPASS, "locale")
 
     # normaler dev run
     return os.path.join(
@@ -36,14 +36,17 @@ def get_locale_dir():
 locale_dir = get_locale_dir()
 
 qt_locale = QLocale.system()
-ui_langs = qt_locale.uiLanguages()
 
-primary = ui_langs[0] if ui_langs else qt_locale.name()
+languages = []
 
-languages = [
-    primary.replace("-", "_"),
-    primary.split("-")[0],
-]
+for lang in qt_locale.uiLanguages():
+    base = lang.split("-")[0]
+    languages.append(base)
+
+languages.append(qt_locale.name().split("_")[0])
+
+languages = list(dict.fromkeys(languages))  # doppelte entfernen
+
 
 try:
     translation = gettext.translation(
@@ -124,10 +127,6 @@ class MainWindow(QMainWindow, QFileDialog, QPushButton):
         self.ui.action_anleitung.triggered.connect(self.openHelpWindow)
         self.ui.action_ueber.triggered.connect(self.openaboutWindow)
 
-    # def trans(self, lang, text):
-    #     trans = gettext.translation("TerminalTableApp", locale, lang)
-    #     trans.install()
-    #     return
     
     def setIcon(self):
         appIcon = QIcon('icon.svg')
