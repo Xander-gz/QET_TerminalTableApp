@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: TerminalTableApp 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-15 11:38+0100\n"
-"PO-Revision-Date: 2026-02-15 11:39+0100\n"
+"PO-Revision-Date: 2026-02-15 14:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"

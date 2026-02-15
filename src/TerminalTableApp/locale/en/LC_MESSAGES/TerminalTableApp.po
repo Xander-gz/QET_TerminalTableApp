@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: TerminalTableApp 0.3.4\n"
 "POT-Creation-Date: 2026-01-26 16:53+0100\n"
-"PO-Revision-Date: 2026-02-15 11:51+0100\n"
+"PO-Revision-Date: 2026-02-15 14:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_GB\n"
@@ -129,7 +129,7 @@ msgstr "help"
 
 #: Main.py:121
 msgid "Instruction"
-msgstr "instruction"
+msgstr "Instruction"
 
 #: Main.py:122
 msgid "about"
@@ -261,55 +261,55 @@ msgstr ""
 
 #: table_functions.py:69
 msgid "Terminal strip "
-msgstr "terminal block"
+msgstr "Terminal block"
 
 #: table_functions.py:117
 msgid "Terminal strip"
-msgstr "terminal block"
+msgstr "Terminal block"
 
 #: table_functions.py:197
 msgid "Cables or single wires used"
-msgstr "cables or single wires used"
+msgstr "Cables or single wires used"
 
 #: table_functions.py:198
 msgid "Designation"
-msgstr "cesignation"
+msgstr "Designation"
 
 #: table_functions.py:199 table_functions.py:225 table_functions.py:240
 msgid "Ziehl"
-msgstr "ziehl"
+msgstr "Ziehl"
 
 #: table_functions.py:200
 msgid "Type"
-msgstr "type"
+msgstr "Type"
 
 #: table_functions.py:201
 msgid "Cross-section"
-msgstr "cross-section"
+msgstr "Cross-section"
 
 #: table_functions.py:202
 msgid "Number of wires"
-msgstr "number of wires"
+msgstr "Number of wires"
 
 #: table_functions.py:203
 msgid "Voltage/protocol"
-msgstr "voltage/protocol"
+msgstr "Voltage/protocol"
 
 #: table_functions.py:211
 msgid "Terminal strip:"
-msgstr "terminal block:"
+msgstr "Terminal block:"
 
 #: table_functions.py:212
 msgid "Terminal used:"
-msgstr "terminal used:"
+msgstr "Terminal used:"
 
 #: table_functions.py:213
 msgid "Comments:"
-msgstr "comments:"
+msgstr "Tomments:"
 
 #: table_functions.py:214 table_functions.py:238
 msgid "Plan-"
-msgstr "plan-"
+msgstr "Plan-"
 
 #: table_functions.py:215 table_functions.py:239
 msgid "reference"
@@ -317,11 +317,11 @@ msgstr ""
 
 #: table_functions.py:216 table_functions.py:245
 msgid "Cable"
-msgstr "cable"
+msgstr "Cable"
 
 #: table_functions.py:217 table_functions.py:246
 msgid "Wire nr.  /  Color"
-msgstr "wire nr.  /  color"
+msgstr "Wire nr.  / Color"
 
 #: table_functions.py:226 table_functions.py:241
 msgid "= Plant / + Location / - Device tag / : Connection"
@@ -329,11 +329,11 @@ msgstr "= plant / + location / - device tag / : connection"
 
 #: table_functions.py:230
 msgid "Function"
-msgstr "function"
+msgstr "Function"
 
 #: table_functions.py:231 table_functions.py:237
 msgid "Bridge / Socket"
-msgstr "bridge / socket"
+msgstr "Bridge / Socket"
 
 #: table_functions.py:232
 msgid "externaly"
@@ -341,7 +341,7 @@ msgstr ""
 
 #: table_functions.py:233
 msgid "Terminal"
-msgstr "terminal"
+msgstr "Terminal"
 
 #: table_functions.py:234
 msgid "internaly"
