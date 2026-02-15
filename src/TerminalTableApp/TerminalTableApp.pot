@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-02-09 19:42+0100\n"
+"POT-Creation-Date: 2026-02-15 11:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: main.py:83
+#: main.py:90
 msgid ""
 "Instruction:\n"
 "Attention!\n"
 "The programme does not recognise formulas for assigning\n"
-"slide numbers (e.g. %id/%total) or equipment codes!\n"
+"slide numbers (e.g. %id/%total) or equipment codes in QET-version < 0.100!\n"
 "These must be entered separately!\n"
 "\n"
 "The equipment code for the terminal strip must begin with\n"
@@ -71,11 +71,11 @@ msgid ""
 "terminals used or comments."
 msgstr ""
 
-#: main.py:91
+#: main.py:98
 msgid "TerminalTableApp"
 msgstr ""
 
-#: main.py:91
+#: main.py:98
 msgid ""
 "The app reads a Qelectrotech file, creates a terminal diagram table, appends the table,\n"
 "and saves the file under a new name.\n"
@@ -92,23 +92,23 @@ msgid ""
 "Copyright © 2026 xanderhopp"
 msgstr ""
 
-#: main.py:102
+#: main.py:109
 msgid "Terminalblock tables for Qelectrotech"
 msgstr ""
 
-#: main.py:103
+#: main.py:110
 msgid "help"
 msgstr ""
 
-#: main.py:104
+#: main.py:111
 msgid "Instruction"
 msgstr ""
 
-#: main.py:105
+#: main.py:112
 msgid "about"
 msgstr ""
 
-#: main.py:106
+#: main.py:113
 msgid ""
 "With \"Terminalblock tables for Qelectrotech\"\n"
 "the individual terminal elements marked with \"-X??:??\"\n"
@@ -122,29 +122,29 @@ msgid ""
 "The original file remains unchanged."
 msgstr ""
 
-#: main.py:107
+#: main.py:114
 msgid ""
 "choose\n"
 "file"
 msgstr ""
 
-#: main.py:108
+#: main.py:115
 msgid "chosen file:"
 msgstr ""
 
-#: main.py:109
+#: main.py:116
 msgid "nothing selected"
 msgstr ""
 
-#: main.py:110
+#: main.py:117
 msgid "create terminlalblock table"
 msgstr ""
 
-#: main.py:111
+#: main.py:118
 msgid "clear feedback"
 msgstr ""
 
-#: main.py:112
+#: main.py:119
 msgid "feedback comments:"
 msgstr ""
 

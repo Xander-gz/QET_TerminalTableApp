@@ -23,8 +23,13 @@ unterstützt **mehrsprachige Oberflächen** via gettext.
 ## 🖥️ Systemvoraussetzungen (Nutzer)
 
 - Linux (getestet unter **Linux Mint**)
-- X11 (empfohlen, Wayland wird automatisch umgangen)
 - Keine Python-Installation erforderlich (AppImage)
+
+---
+
+## Download
+
+https://github.com/DeinName/MyApp/releases
 
 ---
 

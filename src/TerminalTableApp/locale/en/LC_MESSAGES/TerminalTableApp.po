@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2026-01-26 16:53+0100\n"
-"PO-Revision-Date: 2026-01-26 18:08+0100\n"
+"PO-Revision-Date: 2026-02-15 11:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_GB\n"
@@ -74,10 +74,18 @@ msgid ""
 "It is possible to add further elements, such as an image of the\n"
 "terminals used or comments."
 msgstr ""
+"Instruction:\n"
+"Attention!\n"
+"The programme does not recognise formulas for assigning\n"
+"slide numbers (e.g. %id/%total) or equipment codes!\n"
+"These must be entered separately!\n"
+"\n"
+"The equipment code for the terminal strip must begin with\n"
+"‘-X’."
 
 #: Main.py:108
 msgid "TerminalTableApp"
-msgstr ""
+msgstr "TerminalTableApp"
 
 #: Main.py:108
 msgid ""
@@ -96,22 +104,36 @@ msgid ""
 "\n"
 "Copyright © 2026 xanderhopp"
 msgstr ""
+"The app reads a Qelectrotech file, creates a terminal diagram table, appends "
+"the table,\n"
+"and saves the file under a new name.\n"
+"\n"
+"Project Name is free open-source software, published under\n"
+"the GNU General Public Licence Version 3 (GPL-3.0).\n"
+"\n"
+"This licence permits the use, examination, modification and\n"
+"redistribution of the source code, provided that\n"
+"derivative works are also licensed under GPL v3.\n"
+"\n"
+"The full licence text can be found in the LICENCE file.\n"
+"\n"
+"Copyright © 2026 xanderhopp"
 
 #: Main.py:119
 msgid "Terminalblock tables for Qelectrotech"
-msgstr ""
+msgstr "Terminalblock tables for Qelectrotech"
 
 #: Main.py:120
 msgid "help"
-msgstr ""
+msgstr "help"
 
 #: Main.py:121
 msgid "Instruction"
-msgstr ""
+msgstr "instruction"
 
 #: Main.py:122
 msgid "about"
-msgstr ""
+msgstr "about"
 
 #: Main.py:123
 msgid ""
@@ -126,142 +148,168 @@ msgid ""
 "\n"
 "The original file remains unchanged."
 msgstr ""
+"With \"Terminalblock tables for Qelectrotech\"\n"
+"the individual terminal elements marked with \"-X??:??\"\n"
+"are sorted, assigned to the respective\n"
+"terminal strips, and written to a table.\n"
+"The tables are added to the project as new pages\n"
+"and saved under the name\n"
+"Original-file-name_terminals.qet\n"
+"in the same folder as the original file. \n"
+"\n"
+"The original file remains unchanged."
 
 #: Main.py:124
 msgid ""
 "choose\n"
 "file"
 msgstr ""
+"choose\n"
+"file"
 
 #: Main.py:125
 msgid "chosen file:"
-msgstr ""
+msgstr "chosen file:"
 
 #: Main.py:126
 msgid "nothing selected"
-msgstr ""
+msgstr "nothing selected"
 
 #: Main.py:127
 msgid "create terminlalblock table"
-msgstr ""
+msgstr "create terminlalblock table"
 
 #: Main.py:128
 msgid "clear feedback"
-msgstr ""
+msgstr "clear feedback"
 
 #: Main.py:129
 msgid "feedback comments:"
-msgstr ""
+msgstr "feedback comments:"
 
 #: create_table.py:242
 msgid ""
 "\n"
 "Finisch!"
 msgstr ""
+"\n"
+"Finisch!"
 
 #: create_table.py:243
 msgid "The file"
-msgstr ""
+msgstr "The file"
 
 #: create_table.py:243
 msgid "is successfully created."
-msgstr ""
+msgstr "is successfully created."
 
 #: read_xml_file.py:296
 msgid "Terminal with the same uuid available again?"
-msgstr ""
+msgstr "Terminal with the same uuid available again?"
 
 #: sorting_functions.py:51
 msgid "No element is connected to a linked page reference? "
-msgstr ""
+msgstr "No element is connected to a linked page reference? "
 
 #: sorting_functions.py:132
 msgid ""
 "Attention! \n"
 "All conductors carrying potential are likely to be marked as bridges!\n"
 msgstr ""
+"Attention! \n"
+"All conductors carrying potential are likely to be marked as bridges!\n"
 
 #: sql_queries.py:109
 msgid ""
 "An element was labelled with -X that is not a terminal (without a named "
 "terminal)."
 msgstr ""
+"An element was labelled with -X that is not a terminal (without a named "
+"terminal)."
 
 #: sql_queries.py:321 sql_queries.py:385
 msgid ""
 "Error! \n"
 "At terminal  "
 msgstr ""
+"Error! \n"
+"At terminal  "
 
 #: sql_queries.py:322 sql_queries.py:386
 msgid ""
 "\n"
 "a connected element is not fully populated with data."
 msgstr ""
+"\n"
+"a connected element is not fully populated with data."
 
 #: sql_queries.py:349
 msgid ""
 "Error!\n"
 "At terminal "
 msgstr ""
+"Error!\n"
+"At terminal "
 
 #: sql_queries.py:350
 msgid ""
 "\n"
 "a slave element is not linked."
 msgstr ""
+"\n"
+"a slave element is not linked."
 
 #: table_functions.py:69
 msgid "Terminal strip "
-msgstr ""
+msgstr "terminal block"
 
 #: table_functions.py:117
 msgid "Terminal strip"
-msgstr ""
+msgstr "terminal block"
 
 #: table_functions.py:197
 msgid "Cables or single wires used"
-msgstr ""
+msgstr "cables or single wires used"
 
 #: table_functions.py:198
 msgid "Designation"
-msgstr ""
+msgstr "cesignation"
 
 #: table_functions.py:199 table_functions.py:225 table_functions.py:240
 msgid "Ziehl"
-msgstr ""
+msgstr "ziehl"
 
 #: table_functions.py:200
 msgid "Type"
-msgstr ""
+msgstr "type"
 
 #: table_functions.py:201
 msgid "Cross-section"
-msgstr ""
+msgstr "cross-section"
 
 #: table_functions.py:202
 msgid "Number of wires"
-msgstr ""
+msgstr "number of wires"
 
 #: table_functions.py:203
 msgid "Voltage/protocol"
-msgstr ""
+msgstr "voltage/protocol"
 
 #: table_functions.py:211
 msgid "Terminal strip:"
-msgstr ""
+msgstr "terminal block:"
 
 #: table_functions.py:212
 msgid "Terminal used:"
-msgstr ""
+msgstr "terminal used:"
 
 #: table_functions.py:213
 msgid "Comments:"
-msgstr ""
+msgstr "comments:"
 
 #: table_functions.py:214 table_functions.py:238
 msgid "Plan-"
-msgstr ""
+msgstr "plan-"
 
 #: table_functions.py:215 table_functions.py:239
 msgid "reference"
@@ -269,23 +317,23 @@ msgstr ""
 
 #: table_functions.py:216 table_functions.py:245
 msgid "Cable"
-msgstr ""
+msgstr "cable"
 
 #: table_functions.py:217 table_functions.py:246
 msgid "Wire nr.  /  Color"
-msgstr ""
+msgstr "wire nr.  /  color"
 
 #: table_functions.py:226 table_functions.py:241
 msgid "= Plant / + Location / - Device tag / : Connection"
-msgstr ""
+msgstr "= plant / + location / - device tag / : connection"
 
 #: table_functions.py:230
 msgid "Function"
-msgstr ""
+msgstr "function"
 
 #: table_functions.py:231 table_functions.py:237
 msgid "Bridge / Socket"
-msgstr ""
+msgstr "bridge / socket"
 
 #: table_functions.py:232
 msgid "externaly"
@@ -293,26 +341,28 @@ msgstr ""
 
 #: table_functions.py:233
 msgid "Terminal"
-msgstr ""
+msgstr "terminal"
 
 #: table_functions.py:234
 msgid "internaly"
-msgstr ""
+msgstr "internaly"
 
 #: table_functions.py:272
 msgid "Is this terminal internally and externally reversed?"
-msgstr ""
+msgstr "Is this terminal internally and externally reversed?"
 
 #: table_functions.py:285 table_functions.py:335
 msgid ""
 "Attention! No cables stored! \n"
 "Wires are stored in column 1."
 msgstr ""
+"Attention! No cables stored! \n"
+"Wires are stored in column 1."
 
 #: table_functions.py:423
 msgid "Error! The ‘position designation’ is incorrect at a bridge at terminal"
-msgstr ""
+msgstr "Error! The ‘position designation’ is incorrect at a bridge at terminal"
 
 #: table_functions.py:423
 msgid "It must be (1-3)e or (1-3)i."
-msgstr ""
+msgstr "It must be (1-3)e or (1-3)i."
