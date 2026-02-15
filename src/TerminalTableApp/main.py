@@ -86,7 +86,8 @@ class HelpWindow(QDialog):
     def __init__(self,parent=None):
         super().__init__(parent)
         self.ui = Ui_HelpWindow()
-        self.ui.setupUi(self)
+        self.ui.setupUi(self)# overwrite the UI-file for translation
+        self.setWindowTitle(_("Help"))
         self.ui.plainTextEdit.setPlainText(_("Instruction:\nAttention!\nThe programme does not recognise formulas for assigning\nslide numbers (e.g. %id/%total) or equipment codes in QET-version < 0.100!\nThese must be entered separately!\n\nThe equipment code for the terminal strip must begin with\n‘-X’.\n\nAny characters can be specified after this.\nThe terminal designation is delimited with a\n‘:’.\nHere, too, both letters and numbers can follow.\nThe terminals are sorted in ascending order, with numbers\nbefore letters.\nExamples:\n‘-XPR:1’, ‘-X312:21’\n\nThe pages are added to the project with the title Terminal diagram + slide name\n. Slide name K1, K2,...\nIn terms of function, the terminal diagrams are individual elements\nthat are also displayed in the component collection under \nImported elements/Terminal diagrams.\nIn addition, accessories are created here under /Accessories,\nwhich can be subsequently placed over the terminal diagram.\n\nThe following requirements must be met for the terminals drawn in the project\n:\n- The terminals for terminal points\n  must be given a name (a, b...)\n- The terminals for terminal points\n  must be declared as internal or external.\n- Bridges must be declared as generic.\n  and have no name.\n\nA bridge is recognised as such if the conductor in the text field is declared as ‘bridge e1’.\n  ‘e1’ stands for external 1, ‘i1’ for internal 1.\nThe following bridges can be specified: e1, e2, e3, and i3, i2, i1.\n\n\nBe careful when drawing terminal elements yourself.\nIf the elements are copied or saved under a new name,\nthe ‘uuid’ of the terminals will not be reassigned. This can\nlead to unexpected behaviour. Therefore, always delete the terminals\nand insert them again.\nThe same applies to other elements.\n\nCables are queried from the XML file. However, they cannot\ncurrently be specified in Qelectrotech.\n\nIt is possible to add further elements, such as an image of the\nterminals used or comments."))
 
 
@@ -95,6 +96,8 @@ class aboutWindow(QDialog):
         super().__init__(parent)
         self.ui = Ui_aboutWindow()
         self.ui.setupUi(self)
+        # overwrite the UI-file for translation
+        self.setWindowTitle(_("About"))
         self.ui.plainTextEdit.setPlainText(_("TerminalTableApp") + "\n" + APP_VERSION + "\n\n" + _("The app reads a Qelectrotech file, creates a terminal diagram table, appends the table,\nand saves the file under a new name.\n\nProject Name is free open-source software, published under\nthe GNU General Public Licence Version 3 (GPL-3.0).\n\nThis licence permits the use, examination, modification and\nredistribution of the source code, provided that\nderivative works are also licensed under GPL v3.\n\nThe full licence text can be found in the LICENCE file.\n\nCopyright © 2026 xanderhopp"))
 
 

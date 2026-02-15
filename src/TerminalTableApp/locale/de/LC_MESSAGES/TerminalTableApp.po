@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TerminalTableApp 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 11:38+0100\n"
-"PO-Revision-Date: 2026-02-15 14:21+0100\n"
+"POT-Creation-Date: 2026-02-15 18:46+0100\n"
+"PO-Revision-Date: 2026-02-15 18:46+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -16,8 +16,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
 "X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: main.py:90
+msgid "Help"
+msgstr "Hilfe"
+
+#: main.py:91
 msgid ""
 "Instruction:\n"
 "Attention!\n"
@@ -130,11 +136,15 @@ msgstr ""
 "Ein Hinzufügen von weiteren Elementen wie z.B. ein Bild der\n"
 "verwendeten Klemmen oder von Bemerkungen ist möglich."
 
-#: main.py:98
+#: main.py:100
+msgid "About"
+msgstr "Über"
+
+#: main.py:101
 msgid "TerminalTableApp"
 msgstr "KlemmenplanApp"
 
-#: main.py:98
+#: main.py:101
 msgid ""
 "The app reads a Qelectrotech file, creates a terminal diagram table, appends "
 "the table,\n"
@@ -166,23 +176,23 @@ msgstr ""
 "\n"
 "Copyright © 2026 xanderhopp"
 
-#: main.py:109
+#: main.py:112
 msgid "Terminalblock tables for Qelectrotech"
 msgstr "Klemmenpläne für Qelectrotech"
 
-#: main.py:110
+#: main.py:113
 msgid "help"
 msgstr "Hilfe"
 
-#: main.py:111
+#: main.py:114
 msgid "Instruction"
 msgstr "Anleitung"
 
-#: main.py:112
+#: main.py:115
 msgid "about"
 msgstr "Über"
 
-#: main.py:113
+#: main.py:116
 msgid ""
 "With \"Terminalblock tables for Qelectrotech\"\n"
 "the individual terminal elements marked with \"-X??:??\"\n"
@@ -208,7 +218,7 @@ msgstr ""
 "\n"
 "Die Originaldatei bleibt dabei unverändert."
 
-#: main.py:114
+#: main.py:117
 msgid ""
 "choose\n"
 "file"
@@ -216,184 +226,222 @@ msgstr ""
 "Datei\n"
 "auswählen"
 
-#: main.py:115
+#: main.py:118
 msgid "chosen file:"
 msgstr "Ausgewählte Datei:"
 
-#: main.py:116
+#: main.py:119
 msgid "nothing selected"
 msgstr "nichts ausgewählt"
 
-#: main.py:117
+#: main.py:120
 msgid "create terminlalblock table"
 msgstr "Klemmenplan erstellen"
 
-#: main.py:118
+#: main.py:121
 msgid "clear feedback"
 msgstr "Rückmeldungen löschen"
 
-#: main.py:119
+#: main.py:122
 msgid "feedback comments:"
 msgstr "Rückmeldungen:"
 
-#~ msgid "Terminal strip "
-#~ msgstr "Klemmleiste "
+#: read/read_xml_file.py:296
+msgid "Terminal with the same uuid available again?"
+msgstr "Ein Terminal mit der selben uuid wurde nochmal verwendet?"
 
-#~ msgid "Terminal strip"
-#~ msgstr "Klemmleiste"
+#: sort/sorting_functions.py:51
+msgid "No element is connected to a linked page reference? "
+msgstr "An einem Seiten-Verweis ist kein Element angeschlossen? "
 
-#~ msgid "Cables or single wires used"
-#~ msgstr "Verwendete Kabel oder Einzelader"
+#: sort/sorting_functions.py:132
+msgid ""
+"Attention! \n"
+"All conductors carrying potential are likely to be marked as bridges!\n"
+msgstr ""
+"Achtung!\n"
+"Alle Leiter des selben Potentials sind wahrscheinlich als Brücke markiert!\n"
 
-#~ msgid "Designation"
-#~ msgstr "Bezeichnung"
+#: sort/sql_queries.py:110
+msgid ""
+"An element was labelled with -X that is not a terminal (without a named "
+"terminal)."
+msgstr ""
+"Ein Element das mit -X gekennzeichnet ist, ist keine Klemme (ohne benamtes "
+"terminal)"
 
-#~ msgid "Ziehl"
-#~ msgstr "Ziehl"
+#: sort/sql_queries.py:322 sort/sql_queries.py:386
+msgid ""
+"Error! \n"
+"At terminal  "
+msgstr ""
+"Fehler! \n"
+"An Klemme "
 
-#~ msgid "Type"
-#~ msgstr "Typ"
+#: sort/sql_queries.py:323 sort/sql_queries.py:387
+msgid ""
+"\n"
+"a connected element is not fully populated with data."
+msgstr ""
+"\n"
+"ein angeschlossenes Element ist nicht vollständig mit Daten versehen."
 
-#~ msgid "Cross-section"
-#~ msgstr "Qerschnitt"
+#: sort/sql_queries.py:350
+msgid ""
+"Error!\n"
+"At terminal "
+msgstr ""
+"Fehler!\n"
+"An Klemme "
 
-#~ msgid "Number of wires"
-#~ msgstr "Ader-Anzahl"
+#: sort/sql_queries.py:351
+msgid ""
+"\n"
+"a slave element is not linked."
+msgstr ""
+"\n"
+"ein Slave-Element ist nicht verlinkt."
 
-#~ msgid "Voltage/protocol"
-#~ msgstr "Spannung/Protokoll"
+#: write/create_table.py:73
+msgid ""
+"\n"
+"The lines per terminal could not be calculated!\n"
+msgstr ""
+"\n"
+"Die Zeilen je Klemme konnten nicht berechnet werden!\n"
 
-#~ msgid "Terminal strip:"
-#~ msgstr "Klemmleiste:"
+#: write/create_table.py:73
+msgid ""
+"All connection points (a, b, c, d,...) must be shown once in the plan for "
+"each terminal strip.\n"
+"If desired, they can be covered with a white rectangle."
+msgstr ""
+"Von jeder Klemmleiste müssen alle Anschlusspunkte (a, b, c, d,...) einmal im "
+"Plan dargestellt werden.\n"
+"Wenn gewünscht können sie mit einem Weißen Rechteck abgedeckt werden."
 
-#~ msgid "Terminal used:"
-#~ msgstr "Verwendete Klemme:"
+#: write/create_table.py:247
+msgid ""
+"\n"
+"Finisch!"
+msgstr ""
+"\n"
+"Fertig!"
 
-#~ msgid "Comments:"
-#~ msgstr "Bemerkungen:"
+#: write/create_table.py:248
+msgid "The file"
+msgstr "Die Datei"
 
-#~ msgid "Plan-"
-#~ msgstr "Plan-"
+#: write/create_table.py:248
+msgid "is successfully created."
+msgstr "wurde erfolgreich gespeichert."
 
-#~ msgid "reference"
-#~ msgstr "verweis"
+#: write/table_functions.py:69
+msgid "Terminal strip "
+msgstr "Klemmleiste "
 
-#~ msgid "Cable"
-#~ msgstr "Kabel"
+#: write/table_functions.py:122
+msgid "Terminal strip"
+msgstr "Klemmleiste"
 
-#~ msgid "Wire nr.  /  Color"
-#~ msgstr "Ader-Nr. / Farbe"
+#: write/table_functions.py:202
+msgid "Cables or single wires used"
+msgstr "Verwendete Kabel oder Einzelader"
+
+#: write/table_functions.py:203
+msgid "Designation"
+msgstr "Bezeichnung"
+
+#: write/table_functions.py:204 write/table_functions.py:230
+#: write/table_functions.py:245
+msgid "Ziehl"
+msgstr "Ziehl"
+
+#: write/table_functions.py:205
+msgid "Type"
+msgstr "Typ"
+
+#: write/table_functions.py:206
+msgid "Cross-section"
+msgstr "Qerschnitt"
+
+#: write/table_functions.py:207
+msgid "Number of wires"
+msgstr "Ader-Anzahl"
+
+#: write/table_functions.py:208
+msgid "Voltage/protocol"
+msgstr "Spannung/Protokoll"
+
+#: write/table_functions.py:216
+msgid "Terminal strip:"
+msgstr "Klemmleiste:"
+
+#: write/table_functions.py:217
+msgid "Terminal used:"
+msgstr "Verwendete Klemme:"
+
+#: write/table_functions.py:218
+msgid "Comments:"
+msgstr "Bemerkungen:"
+
+#: write/table_functions.py:219 write/table_functions.py:243
+msgid "Plan-"
+msgstr "Plan-"
+
+#: write/table_functions.py:220 write/table_functions.py:244
+msgid "reference"
+msgstr "verweis"
+
+#: write/table_functions.py:221 write/table_functions.py:250
+msgid "Cable"
+msgstr "Kabel"
+
+#: write/table_functions.py:222 write/table_functions.py:251
+msgid "Wire nr.  /  Color"
+msgstr "Ader-Nr. / Farbe"
 
 # take care of length, max. 58
-#~ msgid "= Plant / + Location / - Device tag / : Connection"
-#~ msgstr "= Anlage    /    + Ort    /    - BMK    /    : Anschluss"
+#: write/table_functions.py:231 write/table_functions.py:246
+msgid "= Plant / + Location / - Device tag / : Connection"
+msgstr "= Anlage    /    + Ort    /    - BMK    /    : Anschluss"
 
-#~ msgid "Function"
-#~ msgstr "Funktion"
+#: write/table_functions.py:235
+msgid "Function"
+msgstr "Funktion"
 
-#~ msgid "Bridge / Socket"
-#~ msgstr "Brücke / Buchse"
+#: write/table_functions.py:236 write/table_functions.py:242
+msgid "Bridge / Socket"
+msgstr "Brücke / Buchse"
 
-#~ msgid "externaly"
-#~ msgstr "extern"
+#: write/table_functions.py:237
+msgid "externaly"
+msgstr "extern"
 
-#~ msgid "Terminal"
-#~ msgstr "Klemme"
+#: write/table_functions.py:238
+msgid "Terminal"
+msgstr "Klemme"
 
-#~ msgid "internaly"
-#~ msgstr "intern"
+#: write/table_functions.py:239
+msgid "internaly"
+msgstr "intern"
 
-#~ msgid "Is this terminal internally and externally reversed?"
-#~ msgstr "Ist an der Klemme intern und extern vertauscht?"
+#: write/table_functions.py:277
+msgid "Is this terminal internally and externally reversed?"
+msgstr "Ist an der Klemme intern und extern vertauscht?"
 
-#~ msgid ""
-#~ "Attention! No cables stored! \n"
-#~ "Wires are stored in column 1."
-#~ msgstr ""
-#~ "Achtung! Keine Kabel gespeichert!\n"
-#~ "Die Adern werden in Spalte 1 abgelegt."
+#: write/table_functions.py:290 write/table_functions.py:340
+msgid ""
+"Attention! No cables stored! \n"
+"Wires are stored in column 1."
+msgstr ""
+"Achtung! Keine Kabel gespeichert!\n"
+"Die Adern werden in Spalte 1 abgelegt."
 
-#~ msgid ""
-#~ "Error! The ‘position designation’ is incorrect at a bridge at terminal"
-#~ msgstr "Fehler! Die Positionsangabe einer Brücke ist falsch"
+#: write/table_functions.py:428
+msgid "Error! The ‘position designation’ is incorrect at a bridge at terminal"
+msgstr "Fehler! Die Positionsangabe einer Brücke ist falsch"
 
-#~ msgid "It must be (1-3)e or (1-3)i."
-#~ msgstr "Sie muss (1-3)+(e oder i) sein."
-
-#~ msgid ""
-#~ "\n"
-#~ "The lines per terminal could not be calculated!\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Die Zeilen je Klemme konnten nicht berechnet werden!\n"
-
-#~ msgid ""
-#~ "All connection points (a, b, c, d,...) must be shown once in the plan for "
-#~ "each terminal strip.\n"
-#~ "If desired, they can be covered with a white rectangle."
-#~ msgstr ""
-#~ "Von jeder Klemmleiste müssen alle Anschlusspunkte (a, b, c, d,...) einmal "
-#~ "im Plan dargestellt werden.\n"
-#~ "Wenn gewünscht können sie mit einem Weißen Rechteck abgedeckt werden."
-
-#~ msgid ""
-#~ "\n"
-#~ "Finisch!"
-#~ msgstr ""
-#~ "\n"
-#~ "Fertig!"
-
-#~ msgid "The file"
-#~ msgstr "Die Datei"
-
-#~ msgid "is successfully created."
-#~ msgstr "wurde erfolgreich gespeichert."
-
-#~ msgid "No element is connected to a linked page reference? "
-#~ msgstr "An einem Seiten-Verweis ist kein Element angeschlossen? "
-
-#~ msgid ""
-#~ "Attention! \n"
-#~ "All conductors carrying potential are likely to be marked as bridges!\n"
-#~ msgstr ""
-#~ "Achtung!\n"
-#~ "Alle Leiter des selben Potentials sind wahrscheinlich als Brücke "
-#~ "markiert!\n"
-
-#~ msgid ""
-#~ "An element was labelled with -X that is not a terminal (without a named "
-#~ "terminal)."
-#~ msgstr ""
-#~ "Ein Element das mit -X gekennzeichnet ist, ist keine Klemme (ohne "
-#~ "benamtes terminal)"
-
-#~ msgid ""
-#~ "Error! \n"
-#~ "At terminal  "
-#~ msgstr ""
-#~ "Fehler! \n"
-#~ "An Klemme "
-
-#~ msgid ""
-#~ "\n"
-#~ "a connected element is not fully populated with data."
-#~ msgstr ""
-#~ "\n"
-#~ "ein angeschlossenes Element ist nicht vollständig mit Daten versehen."
-
-#~ msgid ""
-#~ "Error!\n"
-#~ "At terminal "
-#~ msgstr ""
-#~ "Fehler!\n"
-#~ "An Klemme "
-
-#~ msgid ""
-#~ "\n"
-#~ "a slave element is not linked."
-#~ msgstr ""
-#~ "\n"
-#~ "ein Slave-Element ist nicht verlinkt."
-
-#~ msgid "Terminal with the same uuid available again?"
-#~ msgstr "Ein Terminal mit der selben uuid wurde nochmal verwendet?"
+#: write/table_functions.py:428
+msgid "It must be (1-3)e or (1-3)i."
+msgstr "Sie muss (1-3)+(e oder i) sein."
