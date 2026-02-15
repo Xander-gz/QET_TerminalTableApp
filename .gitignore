@@ -38,5 +38,5 @@ AppDir/
 squashfs-root/
 
 # gettext compiled files (optional)
-*.mo
+# *.mo
 
