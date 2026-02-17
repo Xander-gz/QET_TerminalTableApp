@@ -7,6 +7,7 @@ Die Anwendung wurde mit **Python** und **PySide6 (Qt 6)** entwickelt und
 unterstützt **mehrsprachige Oberflächen** via gettext. 
 
 ---
+<img width="1060" height="708" alt="Bildschirmfoto vom 2026-02-14 16-28-24" src="https://github.com/user-attachments/assets/212be986-00e0-4067-9bca-dbc0b74c5544" />
 
 ## ✨ Funktionen
 
