@@ -1,15 +1,55 @@
+"""
+Copyright (C) 2026 xanderhopp; xanderhopp@gmail.com
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+"""
 
 
 import TerminalTableApp.sort.sql_queries as sq
 
 
-def reference(terminal_obj):
-    alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
-    reference_x = (int(terminal_obj.x) -25 ) // int(terminal_obj.colsize)+1
-    reference_y = alpha[(int(terminal_obj.y) -25 ) // int(terminal_obj.rowsize)]
-    reference = "/" + terminal_obj.folio + " ." + str(reference_y) + str(reference_x)
+def reference(terminal_obj, report):
+    print("terminal_obj: ", terminal_obj)
+    print("report: ", report)
+    alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'] # posible row-names
+    reference_x = (int(terminal_obj.x) -25 ) // int(terminal_obj.colsize)+1 # number and size of cols
+    reference_y = alpha[(int(terminal_obj.y) -25 ) // int(terminal_obj.rowsize)] # number and size of rows
 
-    return reference
+    foliorev = ""
+    placeholder = ""
+    for i in report:
+        print("Reverence: ", foliorev, "<", i, ">")
+        if placeholder == "":
+            if i == "%":
+                placeholder += i
+                continue
+            foliorev += i
+        else:
+            if i == "f":
+                foliorev += str(terminal_obj.order_nr)
+            if i == "F":
+                foliorev += terminal_obj.folio
+            if i == "M":
+                foliorev += terminal_obj.plant
+            if i == "LM":
+                foliorev += terminal_obj.location
+            if i == "l":
+                foliorev += str(reference_y)
+            if i == "c":
+                foliorev += str(reference_x)
+
+            placeholder = ""
+
+
+    # reference = "/" + terminal_obj.folio + " ." + str(reference_y) + str(reference_x) # where the element is
+
+    return str(foliorev)
 
 
 def rows_per_terminal(rows_per_terminal):
@@ -37,9 +77,9 @@ def rows_per_terminal(rows_per_terminal):
 
 
 def search_conductor(cursor, connection_obj):
-    conductor_obj = sq.connected_conductor_side1(cursor, connection_obj)
+    conductor_obj = sq.connected_conductor_side1(cursor, connection_obj.eet_uuid, connection_obj.e_uuid,)
     if conductor_obj == None:
-        conductor_obj = sq.connected_conductor_side2(cursor, connection_obj)
+        conductor_obj = sq.connected_conductor_side2(cursor, connection_obj.eet_uuid, connection_obj.e_uuid,)
     return conductor_obj
 
 
@@ -89,7 +129,7 @@ def search_element(cursor, connection_tuple_list, conductor_obj, cl,terminal_obj
         connected_element = cl.Connected_Element(slave_element_list[0], slave_element_list[1], slave_element_list[2],
                                                  slave_master_element_list[1], slave_terminal_list[0], slave_master_element_list[3],
                                                  slave_master_element_list[5], "", "", "", slave_element_list[5],
-                                                 slave_element_list[6], slave_element_list[7], slave_element_list[8])
+                                                 slave_element_list[6], slave_element_list[7], slave_element_list[8], slave_element_list[9],)
 
 
     if element_type == "next_report" or element_type == "previous_report":
@@ -105,6 +145,38 @@ def search_element(cursor, connection_tuple_list, conductor_obj, cl,terminal_obj
     return connected_element
 
 
+def linked_conductor(cursor, target_element):
+    try:
+        link = sq.next_previous_report_element(cursor, target_element)
+    except:
+        return target_element
+
+    if link != None:
+        print("oooooooooooooooooooooooooops!")
+        # if element is next-, preview-report, it comes with an element_type to recursion
+        # if element is next-, preview-report, it comes with an element_type to recursion
+        print("Link:", link.terminal, link.element)
+
+        conductor = sq.connected_conductor_side1(cursor, link.terminal, link.element,)
+        if conductor != None:
+            print("conductor1: ", conductor)
+        if conductor == None:
+            conductor = sq.connected_conductor_side2(cursor, link.terminal, link.element,)
+            print("conductor2: ", conductor)
+            target_element = conductor.element1
+
+        else:
+            target_element = conductor.element2
+
+        linked_element = linked_conductor(cursor, target_element,)
+        return linked_element
+
+
+
+
+
+
+
 def bridge_at_terminal(cursor, terminal_obj, give_feedback):
     connection_list = sq.connections_per_terminal(cursor,terminal_obj, ["", "Generic"])
     list_of_bridge_at_terminal = []
@@ -118,15 +190,26 @@ def bridge_at_terminal(cursor, terminal_obj, give_feedback):
             if conductor_obj.num.startswith("Brücke "):
                 print("Treffer Brücke ", conductor_obj.num)
                 if connection_obj.eet_uuid == conductor_obj.terminal1:
-                    target_element = conductor_obj.element2
+                    target_element0 = conductor_obj.element2
+                    target_terminal0 = conductor_obj.terminal2
                 else:
-                    target_element = conductor_obj.element1
+                    target_element0 = conductor_obj.element1
+                    target_terminal0 = conductor_obj.terminal1
+
+                # ist ein link vorhanden, muss dieser zuerst aufgelöst werden, wenn nicht pass
+                # is there a link, it must be served at first, if not, pass
+
+                print(target_element0)
+                target_element = linked_conductor(cursor, target_element0,)
+                print(target_element)
+
+
                 connected_element = sq.select_simple_element(cursor, target_element, terminal_obj, give_feedback)
-                where_the_bridge_belogs_to = conductor_obj.num.split(" ")[1]
+                where_the_bridge_belongs_to = conductor_obj.num.split(" ")[1]
                 print("Brücke von ", terminal_obj.terminal_name, terminal_obj.terminal_nr, "nach ",connected_element.label, connected_element.x_nr)
                 list_of_bridge_at_terminal.append([terminal_obj.terminal_name, terminal_obj.terminal_nr, "to",
                                                    connected_element.label, connected_element.x_nr,
-                                                   where_the_bridge_belogs_to[0], where_the_bridge_belogs_to[1]])
+                                                   where_the_bridge_belongs_to[0], where_the_bridge_belongs_to[1]])
 
                 if terminal_obj.terminal_nr == connected_element.x_nr:
                     give_feedback(_("Attention! \nAll conductors carrying potential are likely to be marked as bridges!\n") \

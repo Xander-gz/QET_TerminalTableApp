@@ -1,17 +1,26 @@
+"""
+Copyright (C) 2026 xanderhopp; xanderhopp@gmail.com
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+"""
+
+
 import xml.etree.ElementTree as etree
 
 
 def read_xml_file(origin_file, cursor, connection, give_feedback):
 
     def parsetree(origin_file):
-        try:
-            xmltree = etree.parse(origin_file)
-            fback = "Auslesen der Datei"
-            feedback = (fback)
-            return xmltree
-        except:
-            fback = "Datei konnt nicht ausgelesen werden!"
-            feedback = (fback)
+        xmltree = etree.parse(origin_file)
+        return xmltree
+
+
 
 
     def collect_diagram_data(root):
@@ -303,9 +312,11 @@ def read_xml_file(origin_file, cursor, connection, give_feedback):
     def feedback(feedback):
         print(feedback)
 
-
-    xmltree = parsetree(origin_file)
-    xmlroot = xmltree.getroot()
-    collect_diagram_data(xmlroot)
+    try:
+        xmltree = parsetree(origin_file)
+        xmlroot = xmltree.getroot()
+        collect_diagram_data(xmlroot)
+    except:
+        give_feedback("could not open file")
 
 

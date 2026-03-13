@@ -12,11 +12,14 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 """
 
+from TerminalTableApp.resources import icons_rc
+
 
 from PySide6.QtCore import QLocale
 import gettext
 import os
 import sys
+
 
 APP_NAME = "TerminalTableApp"
 
@@ -59,7 +62,6 @@ except FileNotFoundError:
     gettext.install(APP_NAME)
 
 
-
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import (
     QApplication,
@@ -69,18 +71,16 @@ from PySide6.QtWidgets import (
     QDialog
     )
 
-
 from .ui.MainWindow import Ui_MainWindow
 from .ui.HelpWindow import Ui_HelpWindow
 from .ui.aboutWindow import Ui_aboutWindow
-
-
 from . import main_funktions
 
 from importlib.metadata import version
 
 APP_VERSION = version("TerminalTableApp")
 
+# print(QIcon(":/icons/icons/icon.png").isNull())
 
 class HelpWindow(QDialog):
     def __init__(self,parent=None):
@@ -101,14 +101,16 @@ class aboutWindow(QDialog):
         self.ui.plainTextEdit.setPlainText(_("TerminalTableApp") + "\n" + APP_VERSION + "\n\n" + _("The app reads a Qelectrotech file, creates a terminal diagram table, appends the table,\nand saves the file under a new name.\n\nProject Name is free open-source software, published under\nthe GNU General Public Licence Version 3 (GPL-3.0).\n\nThis licence permits the use, examination, modification and\nredistribution of the source code, provided that\nderivative works are also licensed under GPL v3.\n\nThe full licence text can be found in the LICENCE file.\n\nCopyright © 2026 xanderhopp"))
 
 
-class MainWindow(QMainWindow, QFileDialog, QPushButton):
+class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.originFile = None
         self.setIcon()
+
         # overwrite the UI-file for translation
+
         self.setWindowTitle(_("Terminalblock tables for Qelectrotech"))
         self.ui.menuHelp.setTitle(_("help"))
         self.ui.action_anleitung.setText(_("Instruction"))
@@ -120,6 +122,8 @@ class MainWindow(QMainWindow, QFileDialog, QPushButton):
         self.ui.createButton.setText(_("create terminlalblock table"))
         self.ui.pushButton.setText(_("clear feedback"))
         self.ui.feedbackTextEdit.setPlainText(_("feedback comments:"))
+        self.ui.checkBox_accesoiries.setText(_("insert accessoiries"))
+        self.ui.checkbox_protection_notice.setText(_("insert protection notices"))
 
 
         # Slots
@@ -130,9 +134,8 @@ class MainWindow(QMainWindow, QFileDialog, QPushButton):
         self.ui.action_anleitung.triggered.connect(self.openHelpWindow)
         self.ui.action_ueber.triggered.connect(self.openaboutWindow)
 
-    
     def setIcon(self):
-        appIcon = QIcon('icon.svg')
+        appIcon = QIcon(':/icons/icons/icon.png')
         self.setWindowIcon(appIcon)
         
     def give_feedback(self, feedback):
@@ -149,7 +152,10 @@ class MainWindow(QMainWindow, QFileDialog, QPushButton):
             
         # start the Main funktions and get the feedback to the textEdit
     def createFile(self):
-        main_funktions.work_out_the_terminal_diagram(self.ui.choosenFileLineEdit.text(), self.give_feedback)
+        main_funktions.work_out_the_terminal_diagram(self.ui.choosenFileLineEdit.text(),
+                                                     self.ui.checkbox_protection_notice.isChecked(),
+                                                     self.ui.checkBox_accesoiries.isChecked(),
+                                                     self.give_feedback)
 
     def openHelpWindow(self):
         self.hw = HelpWindow()
@@ -161,6 +167,7 @@ class MainWindow(QMainWindow, QFileDialog, QPushButton):
 
 def main():
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(":/icons/icons/icon.png"))
 
     Window = MainWindow()
     Window.show()

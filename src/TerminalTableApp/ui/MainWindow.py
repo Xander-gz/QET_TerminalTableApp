@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'MainWindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.2
+## Created by: Qt User Interface Compiler version 6.10.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,16 +16,20 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QLabel,
-    QLineEdit, QMainWindow, QMenu, QMenuBar,
-    QPushButton, QSizePolicy, QSpacerItem, QStatusBar,
-    QTabWidget, QTextEdit, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QFrame, QHBoxLayout,
+    QLabel, QLineEdit, QMainWindow, QMenu,
+    QMenuBar, QPushButton, QSizePolicy, QSpacerItem,
+    QStatusBar, QTabWidget, QTextEdit, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(381, 626)
+        MainWindow.resize(487, 626)
+        icon = QIcon()
+        icon.addFile(u"../icon.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setIconSize(QSize(32, 32))
         MainWindow.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
         MainWindow.setAnimated(False)
@@ -39,8 +43,8 @@ class Ui_MainWindow(object):
         self.action_ueber.setObjectName(u"action_ueber")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.gridLayout = QGridLayout(self.centralwidget)
-        self.gridLayout.setObjectName(u"gridLayout")
+        self.horizontalLayout = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalSpacer_2 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
@@ -61,11 +65,36 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addItem(self.verticalSpacer)
 
-        self.fileChooseButton = QPushButton(self.centralwidget)
+        self.widget_2 = QWidget(self.centralwidget)
+        self.widget_2.setObjectName(u"widget_2")
+
+        self.verticalLayout.addWidget(self.widget_2)
+
+        self.widget = QWidget(self.centralwidget)
+        self.widget.setObjectName(u"widget")
+
+        self.verticalLayout.addWidget(self.widget)
+
+        self.widget_3 = QWidget(self.centralwidget)
+        self.widget_3.setObjectName(u"widget_3")
+        self.widget_3.setMinimumSize(QSize(0, 50))
+        self.horizontalLayoutWidget = QWidget(self.widget_3)
+        self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
+        self.horizontalLayoutWidget.setGeometry(QRect(-1, 0, 381, 42))
+        self.horizontalLayout_4 = QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.fileChooseButton = QPushButton(self.horizontalLayoutWidget)
         self.fileChooseButton.setObjectName(u"fileChooseButton")
+        self.fileChooseButton.setEnabled(True)
+        self.fileChooseButton.setMinimumSize(QSize(150, 40))
+        self.fileChooseButton.setMaximumSize(QSize(40, 150))
         self.fileChooseButton.setFlat(False)
 
-        self.verticalLayout.addWidget(self.fileChooseButton, 0, Qt.AlignHCenter)
+        self.horizontalLayout_4.addWidget(self.fileChooseButton)
+
+
+        self.verticalLayout.addWidget(self.widget_3)
 
         self.label_2 = QLabel(self.centralwidget)
         self.label_2.setObjectName(u"label_2")
@@ -80,10 +109,43 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.choosenFileLineEdit)
 
-        self.createButton = QPushButton(self.centralwidget)
+        self.widget_4 = QWidget(self.centralwidget)
+        self.widget_4.setObjectName(u"widget_4")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_4.sizePolicy().hasHeightForWidth())
+        self.widget_4.setSizePolicy(sizePolicy)
+        self.widget_4.setMinimumSize(QSize(0, 50))
+        self.createButton = QPushButton(self.widget_4)
         self.createButton.setObjectName(u"createButton")
+        self.createButton.setGeometry(QRect(10, 0, 155, 40))
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.createButton.sizePolicy().hasHeightForWidth())
+        self.createButton.setSizePolicy(sizePolicy1)
+        self.createButton.setMinimumSize(QSize(0, 40))
+        self.layoutWidget = QWidget(self.widget_4)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(190, 0, 281, 54))
+        self.verticalLayout_2 = QVBoxLayout(self.layoutWidget)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.checkbox_protection_notice = QCheckBox(self.layoutWidget)
+        self.checkbox_protection_notice.setObjectName(u"checkbox_protection_notice")
+        self.checkbox_protection_notice.setChecked(True)
 
-        self.verticalLayout.addWidget(self.createButton, 0, Qt.AlignHCenter)
+        self.verticalLayout_2.addWidget(self.checkbox_protection_notice)
+
+        self.checkBox_accesoiries = QCheckBox(self.layoutWidget)
+        self.checkBox_accesoiries.setObjectName(u"checkBox_accesoiries")
+        self.checkBox_accesoiries.setChecked(True)
+
+        self.verticalLayout_2.addWidget(self.checkBox_accesoiries)
+
+
+        self.verticalLayout.addWidget(self.widget_4)
 
         self.feedbackTextEdit = QTextEdit(self.centralwidget)
         self.feedbackTextEdit.setObjectName(u"feedbackTextEdit")
@@ -94,11 +156,11 @@ class Ui_MainWindow(object):
 
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy2)
         self.pushButton.setMinimumSize(QSize(200, 0))
         self.pushButton.setMaximumSize(QSize(100, 20))
         self.pushButton.setSizeIncrement(QSize(0, 0))
@@ -106,12 +168,12 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.pushButton)
 
 
-        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
+        self.horizontalLayout.addLayout(self.verticalLayout)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 381, 22))
+        self.menubar.setGeometry(QRect(0, 0, 487, 22))
         self.menuHelp = QMenu(self.menubar)
         self.menuHelp.setObjectName(u"menuHelp")
         MainWindow.setMenuBar(self.menubar)
@@ -153,6 +215,8 @@ class Ui_MainWindow(object):
 "file", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"chosen file:", None))
         self.createButton.setText(QCoreApplication.translate("MainWindow", u"create terminalblock table", None))
+        self.checkbox_protection_notice.setText(QCoreApplication.translate("MainWindow", u"insert protection notice", None))
+        self.checkBox_accesoiries.setText(QCoreApplication.translate("MainWindow", u"Add accessories", None))
         self.feedbackTextEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

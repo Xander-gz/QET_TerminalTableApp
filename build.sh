@@ -28,7 +28,7 @@ rm -rf build dist AppDir *.AppImage
 # --------------------------------------------------
 # 🐍 venv
 # --------------------------------------------------
-source venv/bin/activate
+source .venv/bin/activate
 
 pip install -U pip
 pip install pyinstaller .
@@ -48,7 +48,7 @@ pyinstaller \
   --clean \
   --paths src \
   --add-data "src/TerminalTableApp/locale${SEP}locale" \
-  --add-data "src/TerminalTableApp/icons${SEP}icons" \
+  --add-data "src/TerminalTableApp/resources/icons${SEP}icons" \
   src/TerminalTableApp/run.py
 
 

@@ -1,3 +1,16 @@
+"""
+Copyright (C) 2026 xanderhopp; xanderhopp@gmail.com
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+"""
+
+
 class Diagram():
     def __init__(self,title,
                  order,
@@ -64,8 +77,21 @@ class Terminal_Row():
 
 
 class Terminal():
-    def __init__(self,folio, rows, rowsize, cols, colsize, x, y, terminal_name=" ", terminal_nr=" ", function=" "):
+    def __init__(self,
+                 folio,
+                 order_nr,
+                 rows,
+                 rowsize,
+                 cols,
+                 colsize,
+                 x,
+                 y,
+                 terminal_name=" ",
+                 terminal_nr=" ",
+                 function=" "
+                 ):
         self.folio = folio
+        self.order_nr = order_nr
         self.rows = rows
         self.rowsize = rowsize
         self.cols = cols
@@ -100,7 +126,7 @@ class Terminal_Connectionpoint():
                  function,
                  connected_element_uuid,
                  connectet_embedded_element_uuid
-    ):
+                 ):
         self.folio = folio
         self.rows = rows
         self.rowsize = rowsize
@@ -124,7 +150,11 @@ class Terminal_Connectionpoint():
 
 
 class Connected_Cable():
-    def __init__(self, cable, conductor_section, tension_protocol):
+    def __init__(self,
+                 cable,
+                 conductor_section,
+                 tension_protocol
+                 ):
         self.cable = cable
         self.conductor_section = conductor_section
         self.tension_protocol = tension_protocol
@@ -133,7 +163,17 @@ class Connected_Cable():
 
 
 class Connection():
-    def __init__(self,terminal_name, ei_terminal_nr, eet_name, eet_type,e_uuid, eet_uuid, folio, x, y):
+    def __init__(self,
+                 terminal_name,
+                 ei_terminal_nr,
+                 eet_name,
+                 eet_type,
+                 e_uuid,
+                 eet_uuid,
+                 folio,
+                 x,
+                 y
+                 ):
         self.terminal_name = terminal_name
         self.ei_terminal_nr = ei_terminal_nr
         self.eet_name = eet_name
@@ -148,9 +188,27 @@ class Connection():
 
 
 class Connected_Conductor():
-    def __init__(self, terminal1, terminalname1, terminal2, terminalname2, element1, element1_name, element1_linked,
-                 element1_label, element2, element2_name, element2_linked, element2_label, formula, bus, num,
-                 conductor_color, cable, function, tension_protocol):
+    def __init__(self,
+                 terminal1,
+                 terminalname1,
+                 terminal2,
+                 terminalname2,
+                 element1,
+                 element1_name,
+                 element1_linked,
+                 element1_label,
+                 element2,
+                 element2_name,
+                 element2_linked,
+                 element2_label,
+                 formula,
+                 bus,
+                 num,
+                 conductor_color,
+                 cable,
+                 function,
+                 tension_protocol
+                 ):
         self.terminal1 = terminal1
         self.terminalname1 = terminalname1
         self.terminal2 = terminal2
@@ -175,7 +233,10 @@ class Connected_Conductor():
 
 
 class Connected_Link():
-    def __init__(self, element, terminal):
+    def __init__(self,
+                 element,
+                 terminal
+                 ):
         self.element = element
         self.terminal = terminal
     def __repr__(self):
@@ -183,8 +244,23 @@ class Connected_Link():
 
 
 class Connected_Element():
-    def __init__(self, folio, x, y, label, connectionnpoint, location, plant, x_nr, x_plant, x_locmach,\
-                 rows, rowsize, cols, colsize):
+    def __init__(self,
+                 folio,
+                 x,
+                 y,
+                 label,
+                 connectionnpoint,
+                 location,
+                 plant,
+                 x_nr,
+                 x_plant,
+                 x_locmach,
+                 rows,
+                 rowsize,
+                 cols,
+                 colsize,
+                 order_nr
+                 ):
         self.folio = folio
         self.x = x
         self.y = y
@@ -199,5 +275,6 @@ class Connected_Element():
         self.rowsize = rowsize
         self.cols = cols
         self.colsize = colsize
+        self.order_nr = order_nr
     def __repr__(self):
         return str(self.__dict__)

@@ -13,14 +13,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 import sqlite3
 
-
 from TerminalTableApp.read import create_database as cdb
 from TerminalTableApp.read import read_xml_file as read_xml
 from TerminalTableApp.write import create_table as create_table
 
-
-
-def work_out_the_terminal_diagram(origin_file, give_feedback):
+def work_out_the_terminal_diagram(origin_file, insert_protection_notice, insert_accesoiries, give_feedback):
 
 # open SQLite to store and sort the infos of the diagram-file
 # the out commented line is for test-cases
@@ -30,10 +27,10 @@ def work_out_the_terminal_diagram(origin_file, give_feedback):
 
     cdb.create_SQLite_table (cursor, connection)
     read_xml.read_xml_file(origin_file, cursor, connection, give_feedback)
-    create_table.create_table(origin_file, cursor, connection, give_feedback)
+    create_table.create_table(origin_file, insert_protection_notice, insert_accesoiries, cursor, connection, give_feedback)
 
 
-# todo: Brücke im Moment nicht über seitenverweis möglich
+
 
 
 
@@ -41,7 +38,6 @@ def work_out_the_terminal_diagram(origin_file, give_feedback):
 
 
 # todo: Darstellung der Seitenverweise aus der Datei importieren (?)
-
 
 
 

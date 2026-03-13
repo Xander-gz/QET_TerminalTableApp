@@ -12,11 +12,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 
 import datetime
-import xml.etree.ElementTree as etree
+# import xml.etree.ElementTree as etree
+from lxml import etree
+
+parser = etree.XMLParser(remove_blank_text=False)
 
 
 def parsetree(origin_file, give_feedback):
-    xmltree = etree.parse(origin_file)
+    # xmltree = etree.parse(origin_file)
+    xmltree = etree.parse(origin_file, parser)
     # give_feedback(_("Reading the file."))
 
     return xmltree
@@ -29,7 +33,7 @@ from TerminalTableApp.sort import terminal_table_classes as cl
 from TerminalTableApp.write import table_functions as tf
 
 
-def create_table(origin_file, cursor, connection, give_feedback):
+def create_table(origin_file, insert_protection_notice, insert_accesoiries, cursor, connection, give_feedback):
     xmltree = parsetree(origin_file, give_feedback)
 
     # funktions
@@ -37,12 +41,14 @@ def create_table(origin_file, cursor, connection, give_feedback):
     # Take the data to write it into the new file
     # -------------------------------------------------------------------------------
 
-
     # category wird nur einmal gebraucht, unabhängig von der Anzahl der Klemmleisten
     # category would be used only once
     eTable = tf.create_category()
     diagram_template = tf.diagram_template(xmltree)
     new_diagram_data = tf.new_diagram(xmltree)
+    report = tf.report(xmltree) # how does the folio-reference looks like
+
+
 
 
     origin_number_of_pages = cursor.execute("SELECT MAX(order_nr) FROM diagrams").fetchone()[0]
@@ -104,12 +110,28 @@ def create_table(origin_file, cursor, connection, give_feedback):
                 identstr = tf.create_ident()
 
                 if ePage == None:
-                    ePage = tf.create_page(terminal_row_obj, pagenumber, origin_number_of_pages, diagram_template, new_diagram_data, date,
-                                           partcounter, identstr)
+                    ePage = tf.create_page(terminal_row_obj,
+                                           pagenumber,
+                                           origin_number_of_pages,
+                                           diagram_template,
+                                           new_diagram_data,
+                                           date,
+                                           partcounter,
+                                           identstr,
+                                           insert_protection_notice
+                                           )
                 else:
                     ePage.append(
-                        tf.create_page(terminal_row_obj, pagenumber, origin_number_of_pages, diagram_template, new_diagram_data, date,
-                                       partcounter, identstr))
+                        tf.create_page(terminal_row_obj,
+                                       pagenumber,
+                                       origin_number_of_pages,
+                                       diagram_template,
+                                       new_diagram_data,
+                                       date,
+                                       partcounter,
+                                       identstr,
+                                       insert_protection_notice
+                                       ))
                 eTablePart = tf.create_table(terminal_row_obj, partcounter, parts, identstr)
 
 
@@ -135,6 +157,7 @@ def create_table(origin_file, cursor, connection, give_feedback):
     # ----------------------------------------------------------------------------------------------------------------------
     # set the connectionspoints into the terminals
     # ----------------------------------------------------------------------------------------------------------------------
+
             conductor_obj = None
             connection_list = sq.connections_per_terminal(cursor, terminal_obj, ["%", "%er"])
             for connection_obj in connection_list:
@@ -143,24 +166,38 @@ def create_table(origin_file, cursor, connection, give_feedback):
                 if conductor_obj == None:
                     continue
 
-
-                element_obj = sf.search_element(cursor, connection_obj, conductor_obj, cl, terminal_obj, give_feedback)
+                element_obj = sf.search_element(cursor,
+                                                connection_obj,
+                                                conductor_obj,
+                                                cl,
+                                                terminal_obj,
+                                                give_feedback)
                 print("Ziehlelement: ", element_obj)
-
-
-
-
-
-
 
                 pos = eTablePart.find("definition/description")
                 if connection_obj.eet_type == 'Outer':
-                    row = tf.create_row_outer(connection_obj, conductor_obj, element_obj, connected_cables, terminal_counter, rows_per_terminal, sf, give_feedback)
+                    row = tf.create_row_outer(connection_obj,
+                                              conductor_obj,
+                                              element_obj,
+                                              connected_cables,
+                                              terminal_counter,
+                                              rows_per_terminal,
+                                              sf,
+                                              report,
+                                              give_feedback)
                     for i in row.iter("text"):
                         pos.append(i)
                     row = None
                 if connection_obj.eet_type == 'Inner':
-                    row = tf.create_row_inner(connection_obj, conductor_obj, element_obj, connected_cables, terminal_counter, rows_per_terminal, sf, give_feedback)
+                    row = tf.create_row_inner(connection_obj,
+                                              conductor_obj,
+                                              element_obj,
+                                              connected_cables,
+                                              terminal_counter,
+                                              rows_per_terminal,
+                                              sf,
+                                              report,
+                                              give_feedback)
                     for i in row.iter("text"):
                         pos.append(i)
                     row = None
@@ -175,10 +212,6 @@ def create_table(origin_file, cursor, connection, give_feedback):
                 if b[1] > b[4] and b[4] not in list_of_created_terminals:
                     bridges_at_terminalrow_list.append(b,)
             print(bridges_at_terminalrow_list)
-
-
-
-
 
                 # Mit jeder neuen Klemmenzeile wird x um 40 erhöht, die neue Zeile
                 # 40 punkte tiefer gezeichnet. Bei 40 Zeilen ist das Ende der Seite erreicht
@@ -200,11 +233,6 @@ def create_table(origin_file, cursor, connection, give_feedback):
                 for i in create_briges.iter("line"):
                     pos.append(i)
                     del(i)
-                # the bridges have to be createt for every page separatly, to start anew, the values must be deleted
-                # del bridges_at_terminalrow_list
-                # del list_of_created_terminals
-                # if create_briges != None:
-                #     del create_bridges
 
                 terminal_counter = 1  # überlauf des Blattes
 
@@ -225,9 +253,21 @@ def create_table(origin_file, cursor, connection, give_feedback):
 
             eTable.insert(2, eTablePart)
 # instert the accessories
-    eTable.insert(2, etree.fromstring(tf.eTableaccessories))
+    if insert_accesoiries == True:
+        fragment = etree.XML(f"<root>{tf.eTableaccessories}</root>")
+        for elem in fragment:
+            eTable.insert(2, elem)
+
+    if insert_accesoiries == True:
+        fragment = etree.XML(f"<root>{tf.eProtection_notice}</root>")
+
+        for elem in fragment:
+            eTable.insert(2, elem)
+
+
     ec = xmltree.find("collection/category")
     ed = xmltree.getroot()
+
 
     ec.insert(4, eTable)
     ed.insert(origin_number_of_pages + 3, ePage)
@@ -235,12 +275,15 @@ def create_table(origin_file, cursor, connection, give_feedback):
     # --------------------------------------------------------------------------------
     # Übergabe zur Datei ... put fata to file
     # --------------------------------------------------------------------------------
-    save_file = origin_file.replace(".qet", "_terminals.qet")
-    # save_file = "Test_Terminals.qet"
 
-    etree.indent(xmltree, space='    ', level=0)
-    xmltree.write(save_file, encoding='UTF-8', xml_declaration=None, default_namespace=None, method='xml',
-                  short_empty_elements=False)
+    save_file = origin_file.replace(".qet", "_terminals.qet")
+
+    xmltree.write(
+        save_file,
+        encoding="UTF-8",
+        xml_declaration=True,
+        pretty_print=True
+    )
 
     print("Finished!")
 

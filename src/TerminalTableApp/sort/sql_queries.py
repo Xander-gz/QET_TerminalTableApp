@@ -1,6 +1,17 @@
+"""
+Copyright (C) 2026 xanderhopp; xanderhopp@gmail.com
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+"""
+
 
 import TerminalTableApp.sort.terminal_table_classes as cl
-
 
 
 def terminal_row_list(cursor):
@@ -59,6 +70,7 @@ def data_of_the_terminal(cursor, tr):
         ("""
         SELECT
         d.folio,
+        order_nr,
         d.rows, 
         d.rowsize,
         d.cols,
@@ -84,7 +96,7 @@ def data_of_the_terminal(cursor, tr):
     terminal_obj = cl.Terminal(*row[0]) if row else None
     if terminal_obj == None:
         # if there is no conductor there should be a terminal aniway
-        terminal_obj = cl.Terminal("","","","","","","",tr[0],tr[1],"")
+        terminal_obj = cl.Terminal("", "", "","","","","","",tr[0],tr[1],"")
 
     return terminal_obj
 
@@ -153,7 +165,7 @@ def list_of_connectionpoints(cursor, terminal_row_obj):
     return connectionpoints
 
 
-def connected_conductor_side1(cursor, connection_obj):
+def connected_conductor_side1(cursor, terminal, element,):
     sql_connected_conductor = ("""
     SELECT
     c.terminal1,
@@ -179,12 +191,12 @@ def connected_conductor_side1(cursor, connection_obj):
     WHERE terminal1 = (?)
     AND element1 = (?)
     """)
-    sql_values = (connection_obj.eet_uuid, connection_obj.e_uuid,)
+    sql_values = (terminal, element,)
     row = cursor.execute(sql_connected_conductor, sql_values).fetchone()
     return cl.Connected_Conductor(*row) if row else None
 
 
-def connected_conductor_side2(cursor, connection_obj):
+def connected_conductor_side2(cursor, terminal, element,):
     sql_connected_conductor = ("""
     SELECT 
     c.terminal1,
@@ -210,7 +222,7 @@ def connected_conductor_side2(cursor, connection_obj):
     WHERE terminal2 = (?)
     AND element2 = (?) 
     """)
-    sql_values = (connection_obj.eet_uuid, connection_obj.e_uuid,)
+    sql_values = (terminal, element,)
     row = cursor.execute(sql_connected_conductor, sql_values).fetchone()
     return cl.Connected_Conductor(*row) if row else None
 
@@ -285,7 +297,8 @@ def select_simple_element(cursor, target_element, terminal_obj, give_feedback):
         d.rows,
         d.rowsize,
         d.cols,
-        d.colsize
+        d.colsize,
+        d.order_nr
     FROM elements e 
     JOIN elementinformations ei on ei.e_uuid = e.e_uuid
     LEFT JOIN diagrams d on d.id = e.diagram_id
@@ -316,6 +329,7 @@ def select_simple_element(cursor, target_element, terminal_obj, give_feedback):
         rowsize = l[9]
         cols = l[10]
         colsize = l[11]
+        order_nr = l[12]
 
     connectionpoint = " "
     if not list:
@@ -323,7 +337,7 @@ def select_simple_element(cursor, target_element, terminal_obj, give_feedback):
         _("\na connected element is not fully populated with data."))
 
     element = cl.Connected_Element(folio, x, y, label, connectionpoint, location, plant, x_nr, x_plant, x_locmach, rows,
-                                   rowsize, cols, colsize)
+                                   rowsize, cols, colsize, order_nr)
     return element
 
 
@@ -338,7 +352,8 @@ def select_slave_element(cursor, target_element, terminal_obj, give_feedback):
         d.rows,
         d.rowsize,
         d.cols,
-        d.colsize
+        d.colsize,
+        d.order_nr
     FROM elements e
     JOIN diagrams d on d.id = e.diagram_id
     JOIN link_uuids l on l.e_uuid = e.e_uuid
