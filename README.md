@@ -30,7 +30,7 @@ unterstützt **mehrsprachige Oberflächen** via gettext.
 
 ## Download
 
-https://github.com/DeinName/MyApp/releases
+https://github.com/Xander-gz/QET_TerminalTableApp/releases/tag/v0.4.0
 
 ---
 
