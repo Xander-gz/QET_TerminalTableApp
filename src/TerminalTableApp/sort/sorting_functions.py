@@ -172,11 +172,6 @@ def linked_conductor(cursor, target_element):
         return linked_element
 
 
-
-
-
-
-
 def bridge_at_terminal(cursor, terminal_obj, give_feedback):
     connection_list = sq.connections_per_terminal(cursor,terminal_obj, ["", "Generic"])
     list_of_bridge_at_terminal = []
@@ -221,31 +216,33 @@ def bridge_at_terminal(cursor, terminal_obj, give_feedback):
 
 
 def search_bridges(bridges_at_terminalrow_list, list_of_created_terminals):
-    # bridges_at_terminalrow_list = [['-X313', '1', 'to', '-X313', '2', '3', 'e'], ['-X313', '11', 'to', '-X313', '12', '3', 'e'], ['-X313', '11', 'to', '-X313', '12', '3', 'e'], ['-X313', '11', 'to', '-X313', '12', '3', 'e']]
-    # list_of_created_terminals = [('-X313', '1', 270), ('-X313', '2', 310), ('-X313', '11', 350), ('-X313', '12', 390), ('-X313', '21', 430), ('-X313', '29', 470), ('-X313', '73', 510), ('-X313', '75', 550), ('-X313', '77', 590), ('-X313', '500', 630), ('-X313', '501', 670)]
     draw_brige_list = []
+
     bridges_unique = list(map(list, dict.fromkeys(map(tuple, bridges_at_terminalrow_list))))
+
+    terminal_map = {t[1]: t[2] for t in list_of_created_terminals}
+
     print("Klemmen: ", list_of_created_terminals, ", Brücken: ", bridges_unique)
-    for bridge_at_terminalrow in bridges_unique:
 
-        if(btl[1] == bridge_at_terminalrow[1] for brl in list_of_created_terminals):
-            result = next((e for e in list_of_created_terminals if e[1] == bridge_at_terminalrow[1]), None)
-            if result != None:
-                start = result[2]
-        if(btl[1] == bridge_at_terminalrow[4] for brl in list_of_created_terminals):
-            result = next((e for e in list_of_created_terminals if e[1] == bridge_at_terminalrow[4]), None)
-            if result != None:
-                end = result[2]
+    for bridge in bridges_unique:
+        start = terminal_map.get(bridge[1])
+        end = terminal_map.get(bridge[4])
+
+        if start is None:
+            continue
+
+        if end is None:
+            if bridge[1] < bridge[4]:
+                end = 9999
             else:
-                if bridge_at_terminalrow[1] < bridge_at_terminalrow[4]:
-                    end = 9999
-                else:
-                    end = 0
+                end = 0
 
-        draw_brige_list.append([start, end, bridge_at_terminalrow[5], bridge_at_terminalrow[6],
-                                    (bridge_at_terminalrow[0] + ":" + bridge_at_terminalrow[1])])
-
+        draw_brige_list.append([
+            start,
+            end,
+            bridge[5],
+            bridge[6],
+            bridge[0] + ":" + bridge[1]
+        ])
 
     return draw_brige_list
-
-

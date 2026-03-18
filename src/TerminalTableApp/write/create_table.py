@@ -76,7 +76,7 @@ def create_table(origin_file, insert_protection_notice, insert_accesoiries, curs
         try:
             max_terminals_per_page = int(40/rows_per_terminal[0])
         except:
-            give_feedback(_("\nThe lines per terminal could not be calculated!\n") + str(terminal_row_obj[terminal_name]) + _("All connection points (a, b, c, d,...) must be shown once in the plan for each terminal strip.\nIf desired, they can be covered with a white rectangle."))
+            give_feedback(_("\nThe lines per terminal could not be calculated!\n") + str(terminal_row_obj.terminal_name) + _("All connection points (a, b, c, d,...) must be shown once in the plan for each terminal strip.\nIf desired, they can be covered with a white rectangle."))
 
         connected_cables = sq.connected_cables(cursor, terminal_row_obj)
 
@@ -252,13 +252,15 @@ def create_table(origin_file, insert_protection_notice, insert_accesoiries, curs
             print("Lister der eingebauten Klemmen: ", list_of_created_terminals)
 
             eTable.insert(2, eTablePart)
-# instert the accessories
-    if insert_accesoiries == True:
+# instert the accessories?
+    if insert_accesoiries:
         fragment = etree.XML(f"<root>{tf.eTableaccessories}</root>")
+
         for elem in fragment:
             eTable.insert(2, elem)
 
-    if insert_accesoiries == True:
+    # instert the protection notice?
+    if insert_protection_notice:
         fragment = etree.XML(f"<root>{tf.eProtection_notice}</root>")
 
         for elem in fragment:

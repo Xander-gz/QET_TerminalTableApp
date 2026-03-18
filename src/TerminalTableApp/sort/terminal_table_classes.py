@@ -11,7 +11,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 """
 
 
-class Diagram():
+class Diagram:
     def __init__(self,title,
                  order,
                  auto_page_num,
@@ -63,7 +63,7 @@ class Diagram():
         return str(self.__dict__)
 
 
-class Terminal_Row():
+class Terminal_Row:
     def __init__(self,terminal_name,
                  plant,
                  locmach):
@@ -76,7 +76,7 @@ class Terminal_Row():
 
 
 
-class Terminal():
+class Terminal:
     def __init__(self,
                  folio,
                  order_nr,
@@ -106,7 +106,7 @@ class Terminal():
 
 
 
-class Terminal_Connectionpoint():
+class Terminal_Connectionpoint:
     def __init__(self,
                  folio,
                  rows,
@@ -149,7 +149,7 @@ class Terminal_Connectionpoint():
         return str(self.__dict__)
 
 
-class Connected_Cable():
+class Connected_Cable:
     def __init__(self,
                  cable,
                  conductor_section,
@@ -162,7 +162,7 @@ class Connected_Cable():
         return str(self.__dict__)
 
 
-class Connection():
+class Connection:
     def __init__(self,
                  terminal_name,
                  ei_terminal_nr,
@@ -187,7 +187,7 @@ class Connection():
         return str(self.__dict__)
 
 
-class Connected_Conductor():
+class Connected_Conductor:
     def __init__(self,
                  terminal1,
                  terminalname1,
@@ -232,7 +232,7 @@ class Connected_Conductor():
         return str(self.__dict__)
 
 
-class Connected_Link():
+class Connected_Link:
     def __init__(self,
                  element,
                  terminal
@@ -243,7 +243,7 @@ class Connected_Link():
         return str(self.__dict__)
 
 
-class Connected_Element():
+class Connected_Element:
     def __init__(self,
                  folio,
                  x,
